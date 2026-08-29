@@ -1,0 +1,14 @@
+# Sample Exams (never check into repository)
+[Ss]ample-[Ee]xams/
+sample-exams/
+Sample-Exams/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
