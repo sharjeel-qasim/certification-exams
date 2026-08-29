@@ -1,11 +1,11 @@
-# 🎓 Certification Exams & Study Guide
+# 🎓 Certification Exams & Question Banks
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Certifications](https://img.shields.io/badge/Certifications-Available-success.svg)](#-available-certifications)
-[![Format](https://img.shields.io/badge/Format-Correct_Answers_%2B_Explanations-orange.svg)](#-study-guide-design--methodology)
+[![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-study-guide-design--methodology)
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](#-how-to-contribute--add-exams)
 
-Welcome to the **Certification Exams & Study Guide** repository! This repository is a curated, high-quality knowledge base of verified sample exam questions, answers, and deep-dive technical explanations for professional software engineering, cloud, database, and infrastructure certifications.
+Welcome to the **Certification Exams & Question Banks** repository! This repository is a curated, high-quality knowledge base of verified sample exam questions, multiple-choice options, correct answer keys, and concise technical explanations for professional software engineering, cloud, database, and infrastructure certifications.
 
 ---
 
@@ -13,25 +13,20 @@ Welcome to the **Certification Exams & Study Guide** repository! This repository
 
 | Technology / Category | Certification Exam | Questions | Status | Direct Link |
 | :--- | :--- | :---: | :---: | :--- |
-| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 Questions** | ✅ Verified | [View Study Guide →](redis/redis-for-dotnet-developers/README.md) |
+| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 Questions** | ✅ Verified | [View Question Bank →](redis/redis-for-dotnet-developers/README.md) |
 | **☁️ Cloud & DevOps** | *(Upcoming: AWS, Azure, GCP, CKA)* | — | ⏳ In Planning | *Coming soon* |
 | **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | ⏳ In Planning | *Coming soon* |
 
 ---
 
-## 🧠 Study Guide Design & Methodology
+## 🧠 Question Bank Format & Structure
 
-This repository follows evidence-based learning principles optimized for certification success:
+Each question in this repository is presented in a clean, exam-ready format:
 
-1. **✅ Positive Reinforcement (Only Correct Answers)**
-   - Distractors and incorrect multiple-choice options are intentionally omitted.
-   - Studying only correct answers strengthens direct pattern recognition and eliminates false-memory interference during actual exam sessions.
-
-2. **💡 Deep Technical Explanations**
-   - Every question includes an architectural and conceptual deep dive explaining *why* the solution works, what happens under the hood, and how it behaves in production.
-
-3. **💻 Production-Grade Code Samples**
-   - Questions featuring code are formatted with syntax highlighting, language-specific conventions, and best practices.
+1. **Question & Scenario**: The exact question statement, scenarios, and code snippets.
+2. **Options**: All multiple choice options (**A**, **B**, **C**, **D**, **E**).
+3. **Correct Answer Key**: Clearly specified correct option(s) (e.g. `Correct answers: A, C` or `Correct answer: B`).
+4. **Brief Technical Explanation (`Why`)**: Clear, concise reasoning explaining why the answer is correct and resolving edge cases.
 
 ---
 
@@ -44,7 +39,7 @@ certification-exams/
 │
 ├── redis/                                       # Redis Certifications
 │   └── redis-for-dotnet-developers/             # Redis for .NET Developers Exam
-│       └── README.md                            # 65 Questions + Explanations
+│       └── README.md                            # 65 MCQs + Verified Answers + Explanations
 │
 └── [category]/                                  # Future certification categories
     └── [exam-name]/
@@ -63,11 +58,11 @@ When adding a new certification:
    ```text
    <technology>/<certification-name>/README.md
    ```
-2. Follow the established formatting template:
-   - **Question Statement**: Clear scenario description and prompt.
-   - **✅ Correct Answer(s)**: Clearly highlighted correct choice or code snippet.
-   - **💡 Deep Explanation**: Conceptual reasoning, underlying mechanics, and edge cases.
-   - **Alert Callouts**: Key takeaways using GitHub Markdown alerts (`> [!TIP]`, `> [!NOTE]`, `> [!IMPORTANT]`).
+2. Follow the established MCQ formatting template:
+   - **Question Statement**: Scenario description, code blocks, and number of answers to select.
+   - **Options**: Clear bulleted list of choices `A`, `B`, `C`, `D`.
+   - **Correct Answer(s)**: `**Correct answer(s):** <Letter(s)>`
+   - **Brief Explanation**: `> **Why:** <Concise explanation of the underlying concept>`
 3. Update the [Available Certifications](#-available-certifications) table in this root `README.md`.
 
 ---
