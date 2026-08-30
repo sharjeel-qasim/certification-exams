@@ -1,8 +1,8 @@
 # 🎓 Certification Exams & Question Banks
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Certifications](https://img.shields.io/badge/Certifications-Available-success.svg)](#-available-certifications)
-[![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-study-guide-design--methodology)
+[![Certifications](https://img.shields.io/badge/Certifications-2%20Available-success.svg)](#-available-certifications)
+[![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-question-bank-format--structure)
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](#-how-to-contribute--add-exams)
 
 Welcome to the **Certification Exams & Question Banks** repository! This repository is a curated, high-quality knowledge base of verified sample exam questions, multiple-choice options, correct answer keys, and concise technical explanations for professional software engineering, cloud, database, and infrastructure certifications.
@@ -11,10 +11,11 @@ Welcome to the **Certification Exams & Question Banks** repository! This reposit
 
 ## 🌟 Available Certifications
 
-| Technology / Category | Certification Exam | Questions | Status | Direct Link |
+| Technology / Category | Certification Exam | Questions & Study Material | Status | Direct Link |
 | :--- | :--- | :---: | :---: | :--- |
-| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 Questions** | ✅ Verified | [View Question Bank →](redis/redis-for-dotnet-developers/README.md) |
-| **☁️ Cloud & DevOps** | *(Upcoming: AWS, Azure, GCP, CKA)* | — | ⏳ In Planning | *Coming soon* |
+| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | ✅ Verified | [View Question Bank →](redis/redis-for-dotnet-developers/README.md) |
+| **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** + [Cram Sheet](azure/dp-900-azure-data-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Question Bank →](azure/dp-900-azure-data-fundamentals/README.md) |
+| **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | ⏳ In Planning | *Coming soon* |
 | **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | ⏳ In Planning | *Coming soon* |
 
 ---
@@ -40,6 +41,11 @@ certification-exams/
 ├── redis/                                       # Redis Certifications
 │   └── redis-for-dotnet-developers/             # Redis for .NET Developers Exam
 │       └── README.md                            # 65 MCQs + Verified Answers + Explanations
+│
+├── azure/                                       # Microsoft Azure Certifications
+│   └── dp-900-azure-data-fundamentals/          # DP-900 Exam Guide & Question Bank
+│       ├── README.md                            # 50 MCQs organized by 4 Official Domains
+│       └── CHEAT_SHEET.md                       # Last-Minute Cram Sheet & Comparison Matrices
 │
 └── [category]/                                  # Future certification categories
     └── [exam-name]/
