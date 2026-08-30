@@ -1,28 +1,28 @@
-# AI-900 / AI-901: Microsoft Azure AI Fundamentals — Question Bank
+# AI-900 / AI-901: Microsoft Azure AI Fundamentals — Comprehensive Question Bank
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
 [![Exam](https://img.shields.io/badge/Exam-AI--900%20%2F%20AI--901-blue?style=for-the-badge)](#table-of-contents)
-[![Questions](https://img.shields.io/badge/Questions-Comprehensive%20MCQs-success?style=for-the-badge)](#table-of-contents)
+[![Questions](https://img.shields.io/badge/Questions-45%20Verified%20MCQs-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
-Comprehensive Multiple Choice Question (MCQ) Practice Bank for the **Microsoft Certified: Azure AI Fundamentals (AI-900 / AI-901)** exam. Aligned to the latest Microsoft Learn exam objectives, covering Generative AI, Large Language Models (LLMs), Microsoft Foundry SDK, AI Agents, Computer Vision, NLP, and Responsible AI principles.
+Complete, cleaned, and verified Multiple Choice Question (MCQ) Bank for the **Microsoft Certified: Azure AI Fundamentals (AI-900 / AI-901)** exam. Curated directly from official Microsoft Learn assessments, practice exams, and training modules.
 
 > [!TIP]
-> Preparing for the exam? Review the [AI-900 / AI-901 Last-Minute Cram Sheet](CHEAT_SHEET.md) for the 6 Responsible AI Principles, Machine Learning models comparison, and Computer Vision task matrices.
+> Before practicing the questions, check out the [AI-900 / AI-901 Last-Minute Cram Sheet](CHEAT_SHEET.md) for quick-fire comparison tables on Responsible AI, Machine Learning algorithms, Vision tasks, and the Microsoft Foundry SDK.
 
 ---
 
 ## Table of Contents
 
-- [Domain 1: Describe Artificial Intelligence Workloads & Considerations (Responsible AI)](#domain-1-describe-artificial-intelligence-workloads--considerations-responsible-ai)
-- [Domain 2: Fundamental Principles of Machine Learning on Azure](#domain-2-fundamental-principles-of-machine-learning-on-azure)
-- [Domain 3: Features of Computer Vision Workloads on Azure](#domain-3-features-of-computer-vision-workloads-on-azure)
-- [Domain 4: Features of Natural Language Processing (NLP) & Speech Workloads on Azure](#domain-4-features-of-natural-language-processing-nlp--speech-workloads-on-azure)
-- [Domain 5: Generative AI, Large Language Models & AI Agents on Azure](#domain-5-generative-ai-large-language-models--ai-agents-on-azure)
+- [Domain 1: Artificial Intelligence Workloads & Responsible AI (Q1 – Q8)](#domain-1-artificial-intelligence-workloads--responsible-ai)
+- [Domain 2: Fundamental Principles of Machine Learning on Azure (Q9 – Q16)](#domain-2-fundamental-principles-of-machine-learning-on-azure)
+- [Domain 3: Computer Vision & Multimodal Workloads on Azure (Q17 – Q22)](#domain-3-computer-vision--multimodal-workloads-on-azure)
+- [Domain 4: Natural Language Processing (NLP) & Speech on Azure (Q23 – Q29)](#domain-4-natural-language-processing-nlp--speech-on-azure)
+- [Domain 5: Generative AI, Large Language Models (LLMs) & AI Agents (Q30 – Q45)](#domain-5-generative-ai-large-language-models-llms--ai-agents)
 
 ---
 
-## Domain 1: Describe Artificial Intelligence Workloads & Considerations (Responsible AI)
+## Domain 1: Artificial Intelligence Workloads & Responsible AI
 
 ### Question 1
 When you design an AI system to assess whether loans should be approved, the factors used to make the decision should be explained to the applicant. Which Microsoft responsible AI principle does this address?
@@ -34,54 +34,54 @@ When you design an AI system to assess whether loans should be approved, the fac
 
 **Correct answer:** B
 
-> **Why:** Transparency requires that AI systems are understandable and explainable so that stakeholders and users know how conclusions and automated decisions are reached.
+> **Why:** Transparency requires that AI systems are understandable and explainable so stakeholders and users know how conclusions, risk scores, and automated decisions are reached.
 
 ---
 
 ### Question 2
-You have an AI-based loan approval system. During testing, you discover that the system exhibits demographic and gender bias in approving applications. Which responsible AI principle was violated?
+You have an AI-based loan approval system. During testing, you discover that the system exhibits demographic and gender bias in approving applications. Which responsible AI principle does this violate?
 
-- **A.** Inclusiveness
+- **A.** Reliability and safety
 - **B.** Fairness
-- **C.** Reliability and safety
+- **C.** Transparency
 - **D.** Accountability
 
 **Correct answer:** B
 
-> **Why:** The Fairness principle states that AI systems should treat all people fairly and without discrimination across gender, race, ethnicity, or demographic groups.
+> **Why:** Fairness requires AI systems to treat all people impartially without demographic, gender, racial, or socioeconomic discrimination.
 
 ---
 
 ### Question 3
-You are designing an AI system. Which task should you include to help the service meet the Microsoft **Inclusiveness** principle for responsible AI?
+You are building an AI system. Which task should you include to help the service meet the Microsoft **Inclusiveness** principle for responsible AI?
 
-- **A.** Publish a detailed technical architecture whitepaper explaining how neural networks operate.
-- **B.** Anonymize user records before training the model.
+- **A.** Ensure that training datasets are representative of the entire population.
+- **B.** Provide documentation to help developers debug code.
 - **C.** Ensure that all visuals and user interfaces have associated text and alt-tags readable by screen readers.
-- **D.** Run stress testing to verify consistent response times under peak traffic.
+- **D.** Enable autoscaling to ensure that the service scales based on load.
 
 **Correct answer:** C
 
-> **Why:** Inclusiveness ensures that AI solutions empower everyone and engage people of all abilities, including users with visual, auditory, or physical disabilities (e.g. providing screen-reader compatible text).
+> **Why:** Inclusiveness ensures AI systems empower everyone and engage people of all physical and cognitive abilities, including users relying on screen readers and assistive technology.
 
 ---
 
 ### Question 4
-The Microsoft responsible AI principle of **Reliability and Safety** requires that an AI system must:
+The Microsoft responsible AI principle of **Reliability and Safety** requires AI systems to:
 
-- **A.** Expose all underlying training data to the public.
-- **B.** Require multi-factor authentication for every query.
-- **C.** Perform consistently and safely under both expected operational conditions and edge cases.
-- **D.** Never use pre-trained third-party foundation models.
+- **A.** Enable continuous human manual approval for every single operation.
+- **B.** Ensure equitable demographic distribution of outcomes.
+- **C.** Perform consistently and safely under expected operational conditions and handle errors gracefully.
+- **D.** Provide clear technical architecture explanations to end users.
 
 **Correct answer:** C
 
-> **Why:** Reliability and Safety requires that AI systems operate consistently and robustly as intended, minimizing risks and handling unexpected situations safely.
+> **Why:** Reliability and Safety ensures AI solutions operate robustly, consistently, and securely across intended scenarios while preventing harm during unforeseen failures.
 
 ---
 
 ### Question 5
-Which Microsoft responsible AI principle states that people must remain ultimately answerable for how an AI system is governed and operated?
+Which Microsoft responsible AI principle states that human beings must remain ultimately answerable for how an AI system is governed and operated?
 
 - **A.** Accountability
 - **B.** Transparency
@@ -90,27 +90,67 @@ Which Microsoft responsible AI principle states that people must remain ultimate
 
 **Correct answer:** A
 
-> **Why:** Accountability establishes that human developers, data scientists, and organizations are responsible for designing, deploying, and governing AI systems within legal and ethical standards.
+> **Why:** Accountability establishes that human developers, data scientists, and organizations are responsible for designing, deploying, and governing AI systems within ethical and legal boundaries.
 
 ---
 
 ### Question 6
-An organization trains an AI model on sensitive hospital patient records. To adhere to Microsoft's **Privacy and Security** principle, what should the team do?
+For each of the following statements about data protection in AI systems, select **Yes** if the statement is true, otherwise select **No**:
 
-- **A.** Make the training datasets publicly accessible to ensure transparency.
-- **B.** Ensure that personally identifiable health information (PHI) is encrypted, access-controlled, and anonymized during training and inference.
-- **C.** Disable logging to prevent monitoring.
-- **D.** Store model weights in an unauthenticated blob container.
+1. Restricting users to authorized data reduces the risk of sensitive data exposure when they use AI systems.
+2. Sharing personal user data openly improves collaboration and supports responsible AI practices.
+3. Protecting personal data and complying with data privacy regulations are key considerations in responsible AI.
 
-**Correct answer:** B
+- **A.** Yes, Yes, Yes
+- **B.** Yes, No, Yes
+- **C.** No, No, Yes
+- **D.** Yes, Yes, No
 
-> **Why:** Privacy and Security mandates that AI systems respect personal data rights and safeguard confidential information against exposure or unauthorized access throughout the data lifecycle.
+**Correct answer:** B (Yes, No, Yes)
+
+> **Why:** Statement 1 is True (least privilege access protects data), Statement 2 is False (unrestricted personal data sharing violates privacy), and Statement 3 is True (compliance with GDPR/HIPAA is a core privacy pillar).
+
+---
+
+### Question 7
+You are designing a system that will generate insurance quotes automatically. Match the requirements to their corresponding Microsoft responsible AI principle:
+
+1. *The decision-making process must be recorded so that staff can identify the reasoning behind a particular quote.*
+2. *A customer's personal information must be visible only to staff who are involved in the decision-making process.*
+3. *The system must be accessible to customers who use screen readers or assistive technology.*
+
+- **A.** 1: Transparency | 2: Privacy and Security | 3: Inclusiveness
+- **B.** 1: Fairness | 2: Accountability | 3: Transparency
+- **C.** 1: Reliability and Safety | 2: Privacy and Security | 3: Fairness
+- **D.** 1: Transparency | 2: Inclusiveness | 3: Privacy and Security
+
+**Correct answer:** A
+
+> **Why:** Auditability of reasoning maps to **Transparency**, restricting access to sensitive customer data maps to **Privacy and Security**, and accessibility via screen readers maps to **Inclusiveness**.
+
+---
+
+### Question 8
+For each of the following statements regarding inclusiveness in AI systems, select **Yes** if true, otherwise select **No**:
+
+1. Designing an AI system for a typical user profile alone is sufficient to support inclusiveness.
+2. A high number of active users guarantees an AI system provides an inclusive experience.
+3. Providing accessible interfaces and multilingual language options helps support inclusiveness in an AI system.
+
+- **A.** Yes, Yes, No
+- **B.** No, No, Yes
+- **C.** Yes, No, Yes
+- **D.** No, Yes, Yes
+
+**Correct answer:** B (No, No, Yes)
+
+> **Why:** Designing solely for the "typical" user excludes people with disabilities (Statement 1 is No). Large user numbers do not equal inclusive design (Statement 2 is No). Offering accessible controls and multiple languages supports inclusiveness (Statement 3 is Yes).
 
 ---
 
 ## Domain 2: Fundamental Principles of Machine Learning on Azure
 
-### Question 7
+### Question 9
 You need to predict the selling price of a used car based on its mileage, age, make, and engine size. Which type of machine learning model should you train?
 
 - **A.** Regression
@@ -120,26 +160,40 @@ You need to predict the selling price of a used car based on its mileage, age, m
 
 **Correct answer:** A
 
-> **Why:** Regression is a supervised learning technique used to predict continuous numeric values (such as prices, temperatures, or sales).
+> **Why:** Regression is a supervised learning technique used to predict continuous numeric quantities (such as prices, temperatures, or probabilities).
 
 ---
 
-### Question 8
-An email service needs to automatically classify incoming messages as either **Spam** or **Not Spam**. Which type of machine learning workload is this?
+### Question 10
+Natural language processing can be used in machine learning to:
 
-- **A.** Regression
-- **B.** Binary Classification
-- **C.** Clustering
-- **D.** Anomaly Detection
+- **A.** Classify email messages as work-related or personal.
+- **B.** Predict the number of future car rentals based on weather.
+- **C.** Predict which website visitors will make a financial transaction.
+- **D.** Stop a factory assembly line when extremely high temperatures are recorded.
 
-**Correct answer:** B
+**Correct answer:** A
 
-> **Why:** Binary classification predicts one of two mutually exclusive discrete outcomes (e.g. Yes/No, Spam/Not Spam, True/False).
+> **Why:** Text classification is an NLP capability that assigns text documents into categories (e.g. work vs. personal). Predicting numerical car rentals is regression; sensor-based emergency stops are rule-based systems.
 
 ---
 
-### Question 9
-A retail marketing team wants to group customers into segments based on purchasing behavior and visit frequency without using prior labeled categories. Which machine learning approach should they use?
+### Question 11
+Asking a chatbot whether it will rain tomorrow and being provided with a weather probability report is an example of:
+
+- **A.** Computer vision
+- **B.** Image generation
+- **C.** Prediction and forecasting
+- **D.** Optical character recognition
+
+**Correct answer:** C
+
+> **Why:** Estimating future meteorological outcomes based on historical patterns is a predictive forecasting machine learning workload.
+
+---
+
+### Question 12
+A retail marketing team wants to group customers into distinct segments based on purchasing behavior and visit frequency without using prior labeled categories. Which machine learning approach should they use?
 
 - **A.** Regression
 - **B.** Supervised classification
@@ -152,37 +206,79 @@ A retail marketing team wants to group customers into segments based on purchasi
 
 ---
 
-### Question 10
-In natural language processing and machine learning, what is the primary purpose of **Tokenization**?
+### Question 13
+An email service needs to automatically classify incoming messages as either **Spam** or **Not Spam**. Which type of machine learning workload is this?
 
-- **A.** To translate text into another human language.
-- **B.** To encrypt sentences for secure storage in database columns.
-- **C.** To break down raw text into smaller discrete units (words, sub-words, or characters) represented as numerical IDs.
-- **D.** To check grammatical spelling mistakes in a document.
+- **A.** Regression
+- **B.** Binary Classification
+- **C.** Clustering
+- **D.** Anomaly Detection
 
-**Correct answer:** C
+**Correct answer:** B
 
-> **Why:** Tokenization splits text sequences into tokens (words or sub-word fragments), allowing models to map text into numerical vectors that neural networks can process.
+> **Why:** Binary classification predicts one of two mutually exclusive discrete label classes (Spam vs. Not Spam, Yes vs. No).
 
 ---
 
-### Question 11
+### Question 14
+In natural language processing and machine learning, what is the primary purpose of **Tokenization**?
+
+- **A.** To translate text into another human language.
+- **B.** To convert text into binary code for network transmission.
+- **C.** To break down raw text into smaller discrete units (words, sub-words, or characters) represented as numerical IDs.
+- **D.** To correct spelling and grammatical mistakes.
+
+**Correct answer:** C
+
+> **Why:** Tokenization segments text into tokens (words or sub-word fragments), allowing models to map text into numerical vectors that neural networks can process.
+
+---
+
+### Question 15
 What are **Vector Embeddings** in machine learning?
 
 - **A.** Compressed image thumbnails stored in cloud storage.
-- **B.** Vector-based numerical representations of tokens in a multi-dimensional space that capture semantic meaning and relationships.
-- **C.** Rule-based decision trees compiled into binary code.
+- **B.** Vector-based numerical representations of tokens in a multi-dimensional space that capture semantic meaning and contextual relationships.
+- **C.** Static rule-based decision trees compiled into binary code.
 - **D.** Audio frequencies stored in MP3 format.
 
 **Correct answer:** B
 
-> **Why:** Embeddings represent words, sentences, or documents as dense numerical vectors where mathematically close vectors share similar semantic meanings (e.g., Word2Vec, Ada embeddings).
+> **Why:** Embeddings represent words, sentences, or documents as dense numerical vectors where mathematically close vectors share similar semantic meanings.
 
 ---
 
-## Domain 3: Features of Computer Vision Workloads on Azure
+### Question 16
+Which feature representation captures contextual semantic similarity between words rather than just statistical occurrence counts?
 
-### Question 12
+- **A.** Term Frequency-Inverse Document Frequency (TF-IDF)
+- **B.** Word2Vec (Dense Vector Embeddings)
+- **C.** Bag of Words
+- **D.** One-Hot Encoding
+
+**Correct answer:** B
+
+> **Why:** Word2Vec generates dense continuous vector embeddings where semantically related words occupy nearby coordinates, whereas TF-IDF only measures statistical frequency across documents.
+
+---
+
+## Domain 3: Computer Vision & Multimodal Workloads on Azure
+
+### Question 17
+Information extraction solutions that detect and read text in scanned documents and images rely on:
+
+- **A.** Computer vision
+- **B.** Image generation
+- **C.** Sentiment analysis
+- **D.** Speech synthesis
+
+**Correct answer:** A
+
+> **Why:** Optical Character Recognition (OCR) and document text extraction are foundational capabilities of computer vision.
+
+---
+
+### Question 18
 Which type of computer vision solution detects specific items in an image and provides **bounding box coordinates** for each detected item?
 
 - **A.** Image Classification
@@ -196,172 +292,393 @@ Which type of computer vision solution detects specific items in an image and pr
 
 ---
 
-### Question 13
-You need to extract typed and handwritten text from scanned invoices and receipts. Which Azure AI capability should you use?
-
-- **A.** Optical Character Recognition (OCR) / Azure Document Intelligence
-- **B.** Semantic Segmentation
-- **C.** Image Classification
-- **D.** Face Recognition
-
-**Correct answer:** A
-
-> **Why:** Optical Character Recognition (OCR), available through Azure AI Vision and Azure Document Intelligence, extracts printed and handwritten text from physical documents and images into structured digital text.
-
----
-
-### Question 14
-You are developing an application that analyzes video files to extract insights and structured fields using Azure Content Understanding. How should you initiate the analysis and retrieve the results asynchronously?
+### Question 19
+You are developing an application that extracts fields from PDFs by using Azure Content Understanding in Foundry Tools. How should you initiate the analysis and retrieve the results asynchronously?
 
 - **A.** Call `get_results()` immediately after uploading the file.
-- **B.** Execute a synchronous SQL query against the video blob.
-- **C.** Call `begin_analyze()`, and then call `poller.result()` to await and retrieve the analysis results.
-- **D.** Use the Speech SDK's `RecognizeOnceAsync()` method.
+- **B.** Execute a synchronous SQL query against the document blob.
+- **C.** Send an HTTP GET request to the root endpoint.
+- **D.** Call `begin_analyze()`, and then call `poller.result()` to retrieve the results.
 
-**Correct answer:** C
+**Correct answer:** D
 
-> **Why:** Large media and document analysis in Azure Content Understanding / Document Intelligence uses a long-running asynchronous operation pattern: `begin_analyze()` starts the operation and returns a poller, and `poller.result()` waits for completion.
-
----
-
-### Question 15
-When using the Azure OpenAI Responses API with a vision-enabled model (such as GPT-4o) to analyze a locally captured image, how should the image data be provided in the request payload?
-
-- **A.** As a base64-encoded image string or image URL within the user message content array.
-- **B.** As an attachment in an email protocol.
-- **C.** As a raw CSV file containing RGB pixel integers.
-- **D.** By saving the file to local disk and passing the local Windows file path.
-
-**Correct answer:** A
-
-> **Why:** Multimodal vision models in Azure OpenAI accept images formatted as either accessible HTTPS image URLs or base64-encoded data URIs (`data:image/jpeg;base64,...`) in the message content payload.
+> **Why:** Long-running document and media processing operations in Azure SDKs follow the Poller pattern: `begin_analyze()` starts the asynchronous job and returns a poller, and `poller.result()` awaits completion and retrieves extracted fields.
 
 ---
-
-## Domain 4: Features of Natural Language Processing (NLP) & Speech Workloads on Azure
-
-### Question 16
-You have a website that contains customer reviews written in multiple languages (Spanish, German, French). You need to store all reviews in English and present them to users in their preferred language. Which Azure AI service feature should you implement?
-
-- **A.** Azure AI Translator (Translation)
-- **B.** Key Phrase Extraction
-- **C.** Entity Recognition
-- **D.** Sentiment Analysis
-
-**Correct answer:** A
-
-> **Why:** Azure AI Translator provides real-time automated text translation across dozens of supported languages.
-
----
-
-### Question 17
-You are developing an application that extracts key named elements such as company names, dates, financial amounts, and physical locations from legal contracts. Which NLP feature should you use?
-
-- **A.** Language Detection
-- **B.** Sentiment Analysis
-- **C.** Named Entity Recognition (NER)
-- **D.** Speech Synthesis
-
-**Correct answer:** C
-
-> **Why:** Named Entity Recognition (NER) identifies and categorizes specific entities (people, places, organizations, dates, quantities) in unstructured text.
-
----
-
-### Question 18
-You are developing a .NET application that continuously captures audio from a microphone and transcribes spoken words into real-time text using Azure Speech. Which class in the Azure Speech SDK should you instantiate?
-
-- **A.** `SpeechSynthesizer`
-- **B.** `TranslationRecognizer`
-- **C.** `SpeechRecognizer`
-- **D.** `AudioDataStream`
-
-**Correct answer:** C
-
-> **Why:** `SpeechRecognizer` is the primary class in the Azure AI Speech SDK used for speech-to-text transcription from microphone audio inputs or audio files.
-
----
-
-### Question 19
-Which Azure AI service should you use to convert typed textual responses into natural, human-sounding synthesized voice output?
-
-- **A.** Azure AI Speech (Text-to-Speech)
-- **B.** Azure AI Language (NER)
-- **C.** Azure AI Vision
-- **D.** Azure AI Search
-
-**Correct answer:** A
-
-> **Why:** Text-to-Speech (speech synthesis) in Azure AI Speech converts written text into synthesized audible spoken audio using neural voices.
-
----
-
-## Domain 5: Generative AI, Large Language Models & AI Agents on Azure
 
 ### Question 20
-Which is the most accurate description of **Generative AI**?
+You are developing an application that analyzes uploaded video files by using Azure Content Understanding in Foundry Tools. Which API should you use?
 
-- **A.** An older form of statistical AI that has been completely superseded by rule-based expert systems.
-- **B.** AI models that use large language models and foundation neural networks to generate original content (text, code, images, audio) in response to natural language prompts.
-- **C.** An algorithm designed exclusively for sorting relational database records.
-- **D.** A hardware chip used for accelerating network packet routing.
+- **A.** The Translator API
+- **B.** The Custom Text API
+- **C.** The Analyze API in Content Understanding
+- **D.** The Text Analytics for Health API
 
-**Correct answer:** B
+**Correct answer:** C
 
-> **Why:** Generative AI refers to deep learning models trained on vast amounts of data that can generate new, original content (text, code, images, audio) based on user prompts.
+> **Why:** The Content Understanding Analyze API processes multimodal media (video, audio, documents) to extract metadata, visual scenes, and structured insights.
 
 ---
 
 ### Question 21
-What is an **AI Agent** in modern artificial intelligence systems?
+You have a Microsoft Foundry project that contains a vision-enabled model deployment (such as GPT-4o). You need to develop an application that sends a message containing an image to the model. How should the request message be structured?
 
-- **A.** An autonomous software entity that can perceive its environment, reason using language models, utilize tools/APIs, and execute multi-step tasks on behalf of a user.
-- **B.** A human customer support representative who monitors AI systems.
-- **C.** A simple static HTML web page.
-- **D.** A hardware sensor attached to a robotic arm.
+- **A.** A user message that includes both a text item and an image item (as a base64-encoded string or HTTPS URL) in the content array.
+- **B.** An email attachment containing the image file path.
+- **C.** A plain text message containing the image's raw binary bytes in ASCII.
+- **D.** A multi-part form upload directed to a relational database.
 
 **Correct answer:** A
 
-> **Why:** AI Agents combine language models with reasoning, memory, and tool-calling capabilities to autonomously execute actions and workflows to achieve specific goals.
+> **Why:** Multimodal vision models in Microsoft Foundry / OpenAI expect a `user` role message with a structured `content` array containing objects of type `text` and `image_url` (with HTTPS URL or base64 data URI).
 
 ---
 
 ### Question 22
-What is the primary purpose of a **System Prompt** when configuring a generative AI model?
+For each of the following statements about Image Analysis capabilities in Microsoft Foundry Tools, select **Yes** if true, otherwise select **No**:
 
-- **A.** To provide foundational instructions, behavioral boundaries, persona definitions, and response constraints to guide the model's output before user prompts are evaluated.
-- **B.** To format the computer's hard drive before running Python scripts.
-- **C.** To compress the model weights into an encrypted ZIP file.
-- **D.** To measure the CPU temperature of the GPU cluster.
+1. Image analysis capabilities can perform optical character recognition (OCR).
+2. Image analysis capabilities can generate captions and descriptive tags for images.
+3. Image analysis capabilities are designed primarily to create new images from text prompts.
 
-**Correct answer:** A
+- **A.** Yes, Yes, No
+- **B.** Yes, No, Yes
+- **C.** No, Yes, Yes
+- **D.** Yes, Yes, Yes
 
-> **Why:** System prompts establish the instructions, tone, behavioral guardrails, and role definitions for generative models across conversations.
+**Correct answer:** A (Yes, Yes, No)
+
+> **Why:** Image Analysis inspects existing images (OCR, tagging, captioning). Generating novel images from text prompts is the domain of image *generation* models (e.g. DALL-E 3).
 
 ---
 
+## Domain 4: Natural Language Processing (NLP) & Speech on Azure
+
 ### Question 23
-When developing a lightweight generative application using the **Microsoft Foundry SDK**, which client class is used as the central entry point to connect to your project and deploy agents?
+You are developing an application that continuously transcribes speech from a default microphone by using Azure Speech in Microsoft Foundry Tools. Which class from the Azure Speech SDK should you use?
 
-- **A.** `AIProjectClient`
-- **B.** `BlobServiceClient`
-- **C.** `SqlConnection`
-- **D.** `HttpClientHandler`
+- **A.** `SpeechSynthesizer`
+- **B.** `AudioConfig`
+- **C.** `SpeechRecognizer`
+- **D.** `ConversationTranscriber`
 
-**Correct answer:** A
+**Correct answer:** C
 
-> **Why:** `AIProjectClient` is the primary client in the Microsoft Foundry SDK used to authenticate, manage project connections, deploy agents, and run inference.
+> **Why:** `SpeechRecognizer` is the primary Azure Speech SDK class for capturing microphone audio and recognizing spoken words in real time.
 
 ---
 
 ### Question 24
-What is the primary benefit of **Retrieval-Augmented Generation (RAG)** architecture?
+A voice-activated security key system that verifies a spoken passphrase is an example of:
 
-- **A.** It allows models to generate content without using any tokens.
-- **B.** It dynamically grounds model responses in private, up-to-date enterprise knowledge bases and documents retrieved via vector search, reducing hallucinations without requiring expensive fine-tuning.
-- **C.** It replaces neural networks with relational SQL databases.
-- **D.** It forces models to run completely offline without internet connectivity.
+- **A.** Speech recognition
+- **B.** Speech synthesis
+- **C.** Sentiment analysis
+- **D.** Key phrase extraction
+
+**Correct answer:** A
+
+> **Why:** Converting acoustic vocal signals into digital text or command tokens is speech recognition (speech-to-text).
+
+---
+
+### Question 25
+You need to develop an application that converts recorded audio to text, and then reads the generated responses aloud. What should you use?
+
+- **A.** Azure Language in Foundry Tools
+- **B.** Azure Translator in Foundry Tools
+- **C.** Azure Document Intelligence in Foundry Tools
+- **D.** Azure Speech in Foundry Tools
+
+**Correct answer:** D
+
+> **Why:** Azure Speech provides both Speech-to-Text (STT) for audio transcription and Text-to-Speech (TTS) for synthesizing voice audio.
+
+---
+
+### Question 26
+What activity happens during the pre-processing stage of speech recognition?
+
+- **A.** Background noise is added to the audio signal.
+- **B.** Feature vectors (acoustic spectrogram features) are extracted from the audio waveform.
+- **C.** Text is translated to a foreign language.
+- **D.** Sentences are converted into SQL queries.
 
 **Correct answer:** B
 
-> **Why:** RAG retrieves relevant excerpts from external enterprise documents and injects them into the model prompt, ensuring accurate, fresh, and grounded responses without model retraining.
+> **Why:** Pre-processing filters noise, segments waveforms, and extracts acoustic feature vectors for neural acoustic modeling.
+
+---
+
+### Question 27
+You have a website that includes customer reviews in French, German, and Spanish. You need to store the reviews in English and present the reviews to users in their preferred local language. Which Azure AI capability should you use?
+
+- **A.** Azure AI Translator (Translation)
+- **B.** Key phrase extraction
+- **C.** Entity recognition
+- **D.** Sentiment analysis
+
+**Correct answer:** A
+
+> **Why:** Azure AI Translator provides automatic bidirectional machine translation across languages.
+
+---
+
+### Question 28
+You are building an application to extract corporate names, commercial products, dates, and locations from news articles. Which Azure Language feature should you use?
+
+- **A.** Language detection
+- **B.** Key phrase extraction
+- **C.** Named Entity Recognition (NER)
+- **D.** Text translation
+
+**Correct answer:** C
+
+> **Why:** Named Entity Recognition identifies and classifies real-world entities into predefined categories (Person, Location, Organization, DateTime).
+
+---
+
+### Question 29
+You are developing a Python application that summarizes customer comments by using Azure Language in Foundry Tools. Which client library package should you install?
+
+- **A.** `azure-ai-textanalytics` (or `azure-ai-language-text`)
+- **B.** `azure-storage-blob`
+- **C.** `azure-identity`
+- **D.** `azure-cognitiveservices-vision`
+
+**Correct answer:** A
+
+> **Why:** The `azure-ai-textanalytics` package provides client APIs for summarization, key phrase extraction, sentiment analysis, and entity recognition.
+
+---
+
+## Domain 5: Generative AI, Large Language Models (LLMs) & AI Agents
+
+### Question 30
+Which is the most accurate description of **Generative AI**?
+
+- **A.** Generative AI uses a language model or foundation neural network to create original content in response to a prompt.
+- **B.** Generative AI is an older form of statistical regression superseded by decision trees.
+- **C.** Generative AI is a database indexing protocol.
+- **D.** Generative AI is a hardware virtualization architecture.
+
+**Correct answer:** A
+
+> **Why:** Generative AI generates novel, contextually relevant content (text, code, imagery, synthetic audio) conditioned on natural language inputs.
+
+---
+
+### Question 31
+What is a **Large Language Model (LLM)**?
+
+- **A.** A type of AI model designed to understand and generate natural language based on vast training datasets and billions of parameters.
+- **B.** A small database query script.
+- **C.** A hardware graphics card.
+- **D.** A rule-based grammar checker.
+
+**Correct answer:** A
+
+> **Why:** LLMs are massive transformer-based neural networks trained on broad text corpora to perform language understanding, synthesis, and reasoning.
+
+---
+
+### Question 32
+What is an **AI Agent** in the context of modern artificial intelligence?
+
+- **A.** An autonomous AI application that can reason, use external tools/APIs, and perform multi-step tasks on behalf of a user.
+- **B.** A human customer support agent who uses computers.
+- **C.** An antivirus background scanner.
+- **D.** A static spreadsheet macro.
+
+**Correct answer:** A
+
+> **Why:** AI Agents leverage language models as reasoning engines combined with memory, planning, and tool execution to accomplish complex user goals.
+
+---
+
+### Question 33
+What is the purpose of a **System Prompt** in generative AI applications?
+
+- **A.** To provide overarching instructions, behavioral constraints, persona rules, and response formats that govern how the model responds to user queries.
+- **B.** To reboot the Azure virtual machine.
+- **C.** To allocate RAM on the user's local PC.
+- **D.** To compile C# source code.
+
+**Correct answer:** A
+
+> **Why:** System prompts define the persona, boundaries, permitted actions, and formatting guidelines for generative models.
+
+---
+
+### Question 34
+In transformer-based language models, what is the role of the **Attention Mechanism**?
+
+- **A.** It forces the computer monitor to remain on during processing.
+- **B.** It dynamically calculates mathematical weights between each token and all other tokens in the context window to capture long-range contextual relationships.
+- **C.** It filters swear words from user input.
+- **D.** It compresses text into ZIP archives.
+
+**Correct answer:** B
+
+> **Why:** Self-attention computes dynamic relational weights across all tokens in an input sequence, allowing models to understand context regardless of word distance.
+
+---
+
+### Question 35
+After a generative AI model is deployed in Microsoft Foundry, how do client applications send inference requests to the model?
+
+- **A.** By sending HTTP POST requests to the deployment's Endpoint URL with authentication headers.
+- **B.** By modifying the server's BIOS settings.
+- **C.** By emailing the prompts to Microsoft support.
+- **D.** By mounting an NFS drive.
+
+**Correct answer:** A
+
+> **Why:** Deployed models expose a secure REST Endpoint URL that client applications call with API keys or Entra ID bearer tokens.
+
+---
+
+### Question 36
+When developing a lightweight chat application by using the **Microsoft Foundry SDK**, which client class is instantiated to connect to your project?
+
+- **A.** `AIProjectClient`
+- **B.** `BlobServiceClient`
+- **C.** `SpeechClient`
+- **D.** `TableClient`
+
+**Correct answer:** A
+
+> **Why:** `AIProjectClient` is the core Foundry SDK entry point used to authenticate, access deployments, run prompts, and manage agents.
+
+---
+
+### Question 37
+You are developing a simple application that uses the Microsoft Foundry SDK to call an AI model. Which three elements must you provide in code or environment variables to run the application?
+
+*Choose 3 answers*
+
+- **A.** The model deployment name
+- **B.** The endpoint URL
+- **C.** Credentials (API key or Token)
+- **D.** The user's home Wi-Fi password
+- **E.** The physical server MAC address
+
+**Correct answers:** A, B, C
+
+> **Why:** Connecting to and calling a model deployment requires the **Endpoint URL**, the **Model Deployment Name**, and **Authentication Credentials** (API Key or `DefaultAzureCredential`).
+
+---
+
+### Question 38
+You are developing a lightweight application that will call an agent programmatically by using the Microsoft Foundry SDK. How can you quickly retrieve the required connection variables from the portal?
+
+- **A.** In the Foundry playground, select Code, and view the `.env` variables and code sample.
+- **B.** Download the entire server operating system image.
+- **C.** Run `ipconfig` on your local laptop.
+- **D.** Check Windows Event Viewer.
+
+**Correct answer:** A
+
+> **Why:** In Microsoft Foundry Playground, clicking the **View Code** button displays pre-configured code snippets and the `.env` configuration keys (project connection string, deployment names).
+
+---
+
+### Question 39
+Which type of Azure AI workload should you use to create original artistic illustrations based on the text description of an article?
+
+- **A.** Azure Document Intelligence
+- **B.** Azure AI Language
+- **C.** Azure AI Vision OCR
+- **D.** Generative AI (e.g. DALL-E / Image Generation Model)
+
+**Correct answer:** D
+
+> **Why:** Creating novel images from textual descriptions is performed by Generative AI image generation models (such as DALL-E 3).
+
+---
+
+### Question 40
+You need to build an AI solution that responds to user queries with detailed written explanations, step-by-step reasoning, and summaries. Which type of AI model should you use?
+
+- **A.** An embedding model
+- **B.** An image generation model
+- **C.** A text generation model (LLM)
+- **D.** A speech recognition model
+
+**Correct answer:** C
+
+> **Why:** Text generation models (e.g. GPT-4o, GPT-3.5) generate descriptive, coherent textual explanations and answers.
+
+---
+
+### Question 41
+You create an agent named Agent1 in the Microsoft Foundry portal. When you open the Foundry playground to test Agent1, what does the playground use to ensure that the tests reflect production behavior?
+
+- **A.** The local web browser cache.
+- **B.** A mock offline emulator.
+- **C.** The user's personal desktop settings.
+- **D.** The exact configuration, instructions, and tools assigned to Agent1 in the project.
+
+**Correct answer:** D
+
+> **Why:** The Foundry Playground directly invokes the deployed agent instance using its configured model, system instructions, temperature, and attached tools.
+
+---
+
+### Question 42
+For each of the following statements about managing agents in Microsoft Foundry, select **Yes** if true, otherwise select **No**:
+
+1. Saving an agent in the Microsoft Foundry portal creates a version that can be tested in the Agents playground.
+2. An agent can only call tools that are written in C++.
+3. Publishing an agent allows client applications to interact with it via SDK and REST APIs.
+
+- **A.** Yes, Yes, No
+- **B.** Yes, No, Yes
+- **C.** No, Yes, Yes
+- **D.** Yes, Yes, Yes
+
+**Correct answer:** B (Yes, No, Yes)
+
+> **Why:** Saving creates a testable version in the playground (Statement 1 is Yes); agents can call tools in any language via REST APIs (Statement 2 is No); publishing exposes endpoints for external applications (Statement 3 is Yes).
+
+---
+
+### Question 43
+What is the primary benefit of **Retrieval-Augmented Generation (RAG)** in enterprise AI applications?
+
+- **A.** It eliminates the need for computer monitors.
+- **B.** It dynamically retrieves relevant domain knowledge from enterprise data stores via vector search to ground model responses in real-time, reducing hallucinations without model retraining.
+- **C.** It translates all English text to binary numbers.
+- **D.** It allows AI models to run without electricity.
+
+**Correct answer:** B
+
+> **Why:** RAG supplements prompt context with domain-specific knowledge retrieved from vector indexes, delivering factual, up-to-date responses without model fine-tuning.
+
+---
+
+### Question 44
+An application needs to accept spoken customer questions through a mobile device and synthesize vocal responses. Which two Azure AI capabilities are combined?
+
+- **A.** Speech-to-Text and Text-to-Speech
+- **B.** Computer Vision and OCR
+- **C.** Facial Recognition and Translation
+- **D.** Document Intelligence and Language Detection
+
+**Correct answer:** A
+
+> **Why:** Speech-to-Text transcribes the user's spoken audio into text, and Text-to-Speech converts generated text answers back into natural audible speech.
+
+---
+
+### Question 45
+Which implementation best aligns with the Microsoft **Transparency** principle for an AI diagnostic recommendation tool?
+
+- **A.** Displaying a confidence score and a summary of the clinical indicators that led to the recommendation.
+- **B.** Hiding the AI logic to prevent user confusion.
+- **C.** Restricting all tool access to administrators only.
+- **D.** Allowing the tool to make autonomous decisions without doctor review.
+
+**Correct answer:** A
+
+> **Why:** Transparency requires providing understandable explanations, rationale, and confidence indicators so users can evaluate AI recommendations appropriately.
