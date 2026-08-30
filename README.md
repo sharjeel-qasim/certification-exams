@@ -1,7 +1,7 @@
 # 🎓 Certification Exams & Question Banks
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Certifications](https://img.shields.io/badge/Certifications-2%20Available-success.svg)](#-available-certifications)
+[![Certifications](https://img.shields.io/badge/Certifications-3%20Available-success.svg)](#-available-certifications)
 [![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-question-bank-format--structure)
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](#-how-to-contribute--add-exams)
 
@@ -15,7 +15,8 @@ Welcome to the **Certification Exams & Question Banks** repository! This reposit
 | :--- | :--- | :---: | :---: | :--- |
 | **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | ✅ Verified | [View Question Bank →](redis/redis-for-dotnet-developers/README.md) |
 | **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** + [Cram Sheet](azure/dp-900-azure-data-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Question Bank →](azure/dp-900-azure-data-fundamentals/README.md) |
-| **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | ⏳ In Planning | *Coming soon* |
+| **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **MCQs & Generative AI** + [Cram Sheet](azure/ai-900-azure-ai-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Question Bank →](azure/ai-900-azure-ai-fundamentals/README.md) |
+| **☁️ Cloud & DevOps** | *(Upcoming: SC-900, AWS, GCP, CKA, Terraform)* | — | ⏳ In Planning | *Coming soon* |
 | **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | ⏳ In Planning | *Coming soon* |
 
 ---
@@ -43,9 +44,13 @@ certification-exams/
 │       └── README.md                            # 65 MCQs + Verified Answers + Explanations
 │
 ├── azure/                                       # Microsoft Azure Certifications
-│   └── dp-900-azure-data-fundamentals/          # DP-900 Exam Guide & Question Bank
-│       ├── README.md                            # 50 MCQs organized by 4 Official Domains
-│       └── CHEAT_SHEET.md                       # Last-Minute Cram Sheet & Comparison Matrices
+│   ├── dp-900-azure-data-fundamentals/          # DP-900 Exam Guide & Question Bank
+│   │   ├── README.md                            # 50 MCQs organized by 4 Official Domains
+│   │   └── CHEAT_SHEET.md                       # Last-Minute Cram Sheet & Comparison Matrices
+│   │
+│   └── ai-900-azure-ai-fundamentals/            # AI-900 / AI-901 Exam Guide & Question Bank
+│       ├── README.md                            # Generative AI, LLMs, Vision, NLP MCQs
+│       └── CHEAT_SHEET.md                       # Responsible AI, ML & Foundry SDK Cram Sheet
 │
 └── [category]/                                  # Future certification categories
     └── [exam-name]/

@@ -3,6 +3,10 @@
 sample-exams/
 Sample-Exams/
 
+# Exam Logs & Telemetry
+exam-logs/
+*.log
+
 # OS metadata
 .DS_Store
 Thumbs.db
