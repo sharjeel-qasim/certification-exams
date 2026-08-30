@@ -4,8 +4,12 @@
 [![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![StackExchange.Redis](https://img.shields.io/badge/StackExchange.Redis-v2.x-blue?style=for-the-badge)](https://stackexchange.github.io/StackExchange.Redis/)
 [![Questions](https://img.shields.io/badge/Questions-65%20MCQs-success?style=for-the-badge)](#table-of-contents)
+[![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
 Complete Multiple Choice Question (MCQ) Bank for the **Redis for .NET Developers** certification. Transcribed and verified with correct answer keys and clear technical explanations for each question.
+
+> [!TIP]
+> Preparing for the exam? Review the [Redis for .NET Developers Last-Minute Cram Sheet](CHEAT_SHEET.md) for native data structures, `StackExchange.Redis` C# patterns, RedisJSON/RediSearch, eviction policies, and high-frequency exam traps.
 
 ---
 
