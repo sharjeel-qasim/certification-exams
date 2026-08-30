@@ -2,10 +2,10 @@
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
 [![Exam](https://img.shields.io/badge/Exam-AI--900%20%2F%20AI--901-blue?style=for-the-badge)](#table-of-contents)
-[![Questions](https://img.shields.io/badge/Questions-45%20Verified%20MCQs-success?style=for-the-badge)](#table-of-contents)
+[![Questions](https://img.shields.io/badge/Questions-45%20Verified%20Questions-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
-Complete, cleaned, and verified Multiple Choice Question (MCQ) Bank for the **Microsoft Certified: Azure AI Fundamentals (AI-900 / AI-901)** exam. Curated directly from official Microsoft Learn assessments, practice exams, and training modules.
+Complete, cleaned, and verified Practice Question Bank for the **Microsoft Certified: Azure AI Fundamentals (AI-900 / AI-901)** exam. Curated directly from official Microsoft Learn assessments, practice exams, and training modules.
 
 > [!TIP]
 > Before practicing the questions, check out the [AI-900 / AI-901 Last-Minute Cram Sheet](CHEAT_SHEET.md) for quick-fire comparison tables on Responsible AI, Machine Learning algorithms, Vision tasks, and the Microsoft Foundry SDK.
@@ -97,54 +97,48 @@ Which Microsoft responsible AI principle states that human beings must remain ul
 ### Question 6
 For each of the following statements about data protection in AI systems, select **Yes** if the statement is true, otherwise select **No**:
 
-1. Restricting users to authorized data reduces the risk of sensitive data exposure when they use AI systems.
-2. Sharing personal user data openly improves collaboration and supports responsible AI practices.
-3. Protecting personal data and complying with data privacy regulations are key considerations in responsible AI.
+| Statement | Answer |
+| :--- | :---: |
+| Restricting users to authorized data reduces the risk of sensitive data exposure when they use AI systems. | **Yes** |
+| Sharing personal user data openly improves collaboration and supports responsible AI practices. | **No** |
+| Protecting personal data and complying with data privacy regulations are key considerations in responsible AI. | **Yes** |
 
-- **A.** Yes, Yes, Yes
-- **B.** Yes, No, Yes
-- **C.** No, No, Yes
-- **D.** Yes, Yes, No
-
-**Correct answer:** B (Yes, No, Yes)
-
-> **Why:** Statement 1 is True (least privilege access protects data), Statement 2 is False (unrestricted personal data sharing violates privacy), and Statement 3 is True (compliance with GDPR/HIPAA is a core privacy pillar).
+> **Why:**
+> - **Statement 1 (Yes):** Applying the principle of least privilege ensures users only see data they are authorized to access, preventing sensitive data leakage.
+> - **Statement 2 (No):** Unrestricted sharing of personal user data violates privacy principles and privacy regulations like GDPR.
+> - **Statement 3 (Yes):** Protecting personally identifiable information (PII) and regulatory compliance are essential tenets of the Privacy and Security principle.
 
 ---
 
 ### Question 7
-You are designing a system that will generate insurance quotes automatically. Match the requirements to their corresponding Microsoft responsible AI principle:
+You are designing an AI system that will generate insurance quotes automatically. Match each requirement to the corresponding Microsoft responsible AI principle:
 
-1. *The decision-making process must be recorded so that staff can identify the reasoning behind a particular quote.*
-2. *A customer's personal information must be visible only to staff who are involved in the decision-making process.*
-3. *The system must be accessible to customers who use screen readers or assistive technology.*
+| Requirement | Responsible AI Principle |
+| :--- | :--- |
+| The decision-making process must be recorded so that staff can identify the reasoning behind a particular quote. | **Transparency** |
+| A customer's personal information must be visible only to staff who are involved in the decision-making process. | **Privacy and security** |
+| The system must be accessible to customers who use screen readers or assistive technology. | **Inclusiveness** |
 
-- **A.** 1: Transparency | 2: Privacy and Security | 3: Inclusiveness
-- **B.** 1: Fairness | 2: Accountability | 3: Transparency
-- **C.** 1: Reliability and Safety | 2: Privacy and Security | 3: Fairness
-- **D.** 1: Transparency | 2: Inclusiveness | 3: Privacy and Security
-
-**Correct answer:** A
-
-> **Why:** Auditability of reasoning maps to **Transparency**, restricting access to sensitive customer data maps to **Privacy and Security**, and accessibility via screen readers maps to **Inclusiveness**.
+> **Why:**
+> - Auditability of reasoning and explainability map to **Transparency**.
+> - Restricting customer personal information to authorized personnel maps to **Privacy and security**.
+> - Accessibility via screen readers and assistive technology maps to **Inclusiveness**.
 
 ---
 
 ### Question 8
-For each of the following statements regarding inclusiveness in AI systems, select **Yes** if true, otherwise select **No**:
+For each of the following statements regarding inclusiveness in AI systems, select **Yes** if the statement is true, otherwise select **No**:
 
-1. Designing an AI system for a typical user profile alone is sufficient to support inclusiveness.
-2. A high number of active users guarantees an AI system provides an inclusive experience.
-3. Providing accessible interfaces and multilingual language options helps support inclusiveness in an AI system.
+| Statement | Answer |
+| :--- | :---: |
+| Designing an AI system for a typical user profile alone is sufficient to support inclusiveness. | **No** |
+| A high number of active users guarantees an AI system provides an inclusive experience. | **No** |
+| Providing accessible interfaces and multilingual language options helps support inclusiveness in an AI system. | **Yes** |
 
-- **A.** Yes, Yes, No
-- **B.** No, No, Yes
-- **C.** Yes, No, Yes
-- **D.** No, Yes, Yes
-
-**Correct answer:** B (No, No, Yes)
-
-> **Why:** Designing solely for the "typical" user excludes people with disabilities (Statement 1 is No). Large user numbers do not equal inclusive design (Statement 2 is No). Offering accessible controls and multiple languages supports inclusiveness (Statement 3 is Yes).
+> **Why:**
+> - **Statement 1 (No):** Designing solely for the "typical" user excludes people with disabilities or diverse needs.
+> - **Statement 2 (No):** A large volume of active users does not mean the system is accessible or inclusive.
+> - **Statement 3 (Yes):** Offering accessible controls, screen-reader support, and multiple languages actively fosters inclusiveness.
 
 ---
 
@@ -335,20 +329,18 @@ You have a Microsoft Foundry project that contains a vision-enabled model deploy
 ---
 
 ### Question 22
-For each of the following statements about Image Analysis capabilities in Microsoft Foundry Tools, select **Yes** if true, otherwise select **No**:
+For each of the following statements about Image Analysis capabilities in Microsoft Foundry Tools, select **Yes** if the statement is true, otherwise select **No**:
 
-1. Image analysis capabilities can perform optical character recognition (OCR).
-2. Image analysis capabilities can generate captions and descriptive tags for images.
-3. Image analysis capabilities are designed primarily to create new images from text prompts.
+| Statement | Answer |
+| :--- | :---: |
+| Image analysis capabilities can perform optical character recognition (OCR). | **Yes** |
+| Image analysis capabilities can generate captions and descriptive tags for images. | **Yes** |
+| Image analysis capabilities are designed primarily to create new images from text prompts. | **No** |
 
-- **A.** Yes, Yes, No
-- **B.** Yes, No, Yes
-- **C.** No, Yes, Yes
-- **D.** Yes, Yes, Yes
-
-**Correct answer:** A (Yes, Yes, No)
-
-> **Why:** Image Analysis inspects existing images (OCR, tagging, captioning). Generating novel images from text prompts is the domain of image *generation* models (e.g. DALL-E 3).
+> **Why:**
+> - **Statement 1 (Yes):** Image Analysis includes OCR text detection.
+> - **Statement 2 (Yes):** Image Analysis extracts descriptive tags, objects, and captions.
+> - **Statement 3 (No):** Creating new images from text prompts is done by image *generation* models (e.g. DALL-E 3), not image analysis.
 
 ---
 
@@ -626,20 +618,18 @@ You create an agent named Agent1 in the Microsoft Foundry portal. When you open 
 ---
 
 ### Question 42
-For each of the following statements about managing agents in Microsoft Foundry, select **Yes** if true, otherwise select **No**:
+For each of the following statements about managing agents in Microsoft Foundry, select **Yes** if the statement is true, otherwise select **No**:
 
-1. Saving an agent in the Microsoft Foundry portal creates a version that can be tested in the Agents playground.
-2. An agent can only call tools that are written in C++.
-3. Publishing an agent allows client applications to interact with it via SDK and REST APIs.
+| Statement | Answer |
+| :--- | :---: |
+| Saving an agent in the Microsoft Foundry portal creates a version that can be tested in the Agents playground. | **Yes** |
+| An agent can only call tools that are written in C++. | **No** |
+| Publishing an agent allows client applications to interact with it via SDK and REST APIs. | **Yes** |
 
-- **A.** Yes, Yes, No
-- **B.** Yes, No, Yes
-- **C.** No, Yes, Yes
-- **D.** Yes, Yes, Yes
-
-**Correct answer:** B (Yes, No, Yes)
-
-> **Why:** Saving creates a testable version in the playground (Statement 1 is Yes); agents can call tools in any language via REST APIs (Statement 2 is No); publishing exposes endpoints for external applications (Statement 3 is Yes).
+> **Why:**
+> - **Statement 1 (Yes):** Saving creates a testable version in the playground.
+> - **Statement 2 (No):** Agents can call OpenAPI tools, Azure Functions, and custom Python/C# scripts.
+> - **Statement 3 (Yes):** Publishing exposes secure API endpoints for client SDKs and applications.
 
 ---
 
