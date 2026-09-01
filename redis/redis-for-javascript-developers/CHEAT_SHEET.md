@@ -1,11 +1,11 @@
-# ⚡ Redis for JavaScript Developers (RU102JS) — Last-Minute Cram & Cheat Sheet
+# ⚡ Redis for JavaScript Developers — Last-Minute Cram & Cheat Sheet
 
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Exam](https://img.shields.io/badge/Certification-RU102JS%20Redis%20for%20JavaScript-red?style=for-the-badge)](#-high-frequency-exam-topics)
+[![Exam](https://img.shields.io/badge/Certification-Redis_for_JavaScript_Developers-red?style=for-the-badge)](#-high-frequency-exam-topics)
 
-High-yield quick-reference cheat sheet for **Redis for JavaScript Developers (RU102JS)**. Covers official `node-redis` (v4+) client syntax, Promises/async-await, native data structures, Redis Stack (RedisJSON, RediSearch, TimeSeries), Streams, Pub/Sub, transactions, and Node.js caching patterns.
+High-yield quick-reference cheat sheet for **Redis for JavaScript Developers**. Covers official `node-redis` (v4+) client syntax, Promises/async-await, native data structures, Redis Stack (RedisJSON, RediSearch, TimeSeries), Streams, Pub/Sub, transactions, and Node.js caching patterns.
 
 ---
 

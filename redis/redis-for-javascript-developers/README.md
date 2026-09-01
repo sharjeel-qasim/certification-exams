@@ -1,4 +1,4 @@
-# Redis for JavaScript Developers (RU102JS) — Question Bank
+# Redis for JavaScript Developers — Question Bank
 
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -6,7 +6,7 @@
 [![Questions](https://img.shields.io/badge/Questions-45%20Verified%20MCQs-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
-Comprehensive Multiple Choice Question (MCQ) Practice Bank for the **Redis for JavaScript Developers (RU102JS)** certification from Redis University. Verified against official course objectives, Node.js (`node-redis` v4+) client design patterns, Streams, Geospatial indexing, and Redis Stack modules.
+Complete Multiple Choice Question (MCQ) Practice Bank for the **Redis for JavaScript Developers** certification. Verified against Node.js (`node-redis` v4+) client design patterns, Streams, Geospatial indexing, and Redis Stack modules.
 
 > [!TIP]
 > Preparing for the exam? Review the [Redis for JavaScript Developers Last-Minute Cram Sheet](CHEAT_SHEET.md) for quick-fire code snippets, `node-redis` v4 methods, Streams consumer groups, and transaction patterns.
