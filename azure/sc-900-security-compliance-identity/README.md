@@ -1,11 +1,11 @@
-# SC-900: Microsoft Security, Compliance, and Identity Fundamentals — Question Bank
+# SC-900: Microsoft Security, Compliance, and Identity Fundamentals — Practice Question Bank
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
 [![Exam](https://img.shields.io/badge/Exam-SC--900-blue?style=for-the-badge)](#table-of-contents)
 [![Questions](https://img.shields.io/badge/Questions-50%20Verified%20Questions-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
-Comprehensive practice question bank for the **Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)** exam. Verified against official Microsoft Learn practice assessments, live exam objectives, and domain guidelines.
+Comprehensive practice question bank for the **Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)** exam. Verified against official Microsoft Learn practice assessments, official exam objectives, and domain guidelines.
 
 > [!TIP]
 > Preparing for the exam? Review the [SC-900 Last-Minute Cram Sheet](CHEAT_SHEET.md) for Zero Trust principles, Shared Responsibility matrix, Microsoft Defender XDR breakdown, Sentinel SIEM/SOAR components, and Purview compliance features.

@@ -1,4 +1,4 @@
-# AI-900 / AI-901: Microsoft Azure AI Fundamentals — Comprehensive Question Bank
+# AI-900 / AI-901: Microsoft Azure AI Fundamentals — Practice Question Bank
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
 [![Exam](https://img.shields.io/badge/Exam-AI--900%20%2F%20AI--901-blue?style=for-the-badge)](#table-of-contents)

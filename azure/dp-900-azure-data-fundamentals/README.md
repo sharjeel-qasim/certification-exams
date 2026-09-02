@@ -1,4 +1,4 @@
-# DP-900: Microsoft Azure Data Fundamentals — Question Bank
+# DP-900: Microsoft Azure Data Fundamentals — Practice Question Bank
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
 [![Exam](https://img.shields.io/badge/Exam-DP--900-blue?style=for-the-badge)](#table-of-contents)

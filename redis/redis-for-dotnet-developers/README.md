@@ -1,4 +1,4 @@
-# Redis for .NET Developers — Exam Question Bank
+# Redis for .NET Developers — Practice Question Bank
 
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
 [![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
@@ -6,7 +6,7 @@
 [![Questions](https://img.shields.io/badge/Questions-65%20MCQs-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
-Complete Multiple Choice Question (MCQ) Bank for the **Redis for .NET Developers** certification. Transcribed and verified with correct answer keys and clear technical explanations for each question.
+Comprehensive Multiple Choice Practice Question Bank for the **Redis for .NET Developers** certification. Curated and verified with accurate answer keys and clear technical explanations for each question.
 
 > [!TIP]
 > Preparing for the exam? Review the [Redis for .NET Developers Last-Minute Cram Sheet](CHEAT_SHEET.md) for native data structures, `StackExchange.Redis` C# patterns, RedisJSON/RediSearch, eviction policies, and high-frequency exam traps.
@@ -165,9 +165,9 @@ Under load, 50 concurrent requests each issue Redis commands at the same time th
   ```
   The `ConnectionMultiplexer` has no built-in mechanism for handling an unavailable server at startup, so retry logic must be implemented manually.
 
-**Correct answer:** B *(Note: The exam screen marked D, but B is verified correct)*
+**Correct answer:** B
 
-> **Why:** The marked exam screen asserts that `ConnectionMultiplexer` has no built-in mechanism for an unavailable server at startup. It does: `abortConnect=false` tells the multiplexer not to throw on initial connect and to keep retrying in the background — which is option B, and is the documented, recommended approach.
+> **Why:** In `StackExchange.Redis`, setting `abortConnect=false` in the connection string instructs the `ConnectionMultiplexer` not to throw an exception at startup if the Redis server is temporarily unreachable, and to automatically continue retrying connections in the background until available. Manual `try/catch` with `Thread.Sleep` is an anti-pattern that blocks application threads.
 
 ---
 

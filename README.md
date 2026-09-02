@@ -5,19 +5,19 @@
 [![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-question-bank-format--structure)
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](#-how-to-contribute--add-exams)
 
-Welcome to the **Certification Exams & Question Banks** repository! This repository is a curated, high-quality knowledge base of verified sample exam questions, multiple-choice options, correct answer keys, and concise technical explanations for professional software engineering, cloud, database, and infrastructure certifications.
+Welcome to the **Certification Practice Exams & Study Guides** repository! This repository is a curated, high-quality knowledge base of verified practice exam questions, multiple-choice options, correct answer keys, and concise technical explanations for professional software engineering, cloud, database, and infrastructure certifications.
 
 ---
 
 ## 🌟 Available Certifications
 
-| Technology / Category | Certification Exam | Questions | Status | Direct Link |
+| Technology / Category | Certification Exam | Practice Questions | Status | Direct Link |
 | :--- | :--- | :---: | :---: | :--- |
-| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | ✅ Verified | [View Question Bank →](redis/redis-for-dotnet-developers/README.md) |
-| **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | ✅ Verified | [View Question Bank →](redis/redis-for-javascript-developers/README.md) |
-| **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | ✅ Verified | [View Question Bank →](azure/dp-900-azure-data-fundamentals/README.md) |
-| **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | ✅ Verified | [View Question Bank →](azure/ai-900-azure-ai-fundamentals/README.md) |
-| **🔒 Microsoft Azure** | [SC-900: Security, Compliance & Identity](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | ✅ Verified | [View Question Bank →](azure/sc-900-security-compliance-identity/README.md) |
+| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-dotnet-developers/README.md) |
+| **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
+| **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
+| **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
+| **🔒 Microsoft Azure** | [SC-900: Security, Compliance & Identity](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
 | **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | ⏳ In Planning | *Coming soon* |
 | **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | ⏳ In Planning | *Coming soon* |
 

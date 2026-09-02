@@ -1,4 +1,4 @@
-# Redis for JavaScript Developers — Question Bank
+# Redis for JavaScript Developers — Practice Question Bank
 
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
