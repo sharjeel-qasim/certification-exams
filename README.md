@@ -1,7 +1,7 @@
 # 🎓 Certification Exams & Question Banks
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Certifications](https://img.shields.io/badge/Certifications-5%20Available-success.svg)](#-available-certifications)
+[![Certifications](https://img.shields.io/badge/Certifications-6%20Available-success.svg)](#-available-certifications)
 [![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-question-bank-format--structure)
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](#-how-to-contribute--add-exams)
 
@@ -17,6 +17,7 @@ Welcome to the **Certification Practice Exams & Study Guides** repository! This 
 | **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
 | **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
 | **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
+| **🧠 Microsoft Azure** | [AI-103 / AI-102: Azure AI Engineer Associate](azure/ai-103-azure-ai-engineer-associate/README.md) | **64 MCQs** | ✅ Verified | [View Questions →](azure/ai-103-azure-ai-engineer-associate/README.md) |
 | **🔒 Microsoft Azure** | [SC-900: Security, Compliance & Identity](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
 | **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | ⏳ In Planning | *Coming soon* |
 | **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | ⏳ In Planning | *Coming soon* |
@@ -58,6 +59,10 @@ certification-exams/
 │   ├── ai-900-azure-ai-fundamentals/            # AI-900 / AI-901 Exam Guide & Question Bank
 │   │   ├── README.md                            # 45 MCQs on Generative AI, LLMs, Vision, NLP
 │   │   └── CHEAT_SHEET.md                       # Responsible AI, ML & Foundry SDK Cram Sheet
+│   │
+│   ├── ai-103-azure-ai-engineer-associate/      # AI-103 / AI-102 Exam Guide & Question Bank
+│   │   ├── README.md                            # 64 MCQs on Foundry Agents, RAG, Multimodal, Safety
+│   │   └── CHEAT_SHEET.md                       # Orchestration, Evaluators & Search Cram Sheet
 │   │
 │   └── sc-900-security-compliance-identity/     # SC-900 Exam Guide & Question Bank
 │       ├── README.md                            # 50 MCQs on Zero Trust, Entra, Defender, Purview
