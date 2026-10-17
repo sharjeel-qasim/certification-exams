@@ -1,13 +1,13 @@
-# AI-900: Microsoft Azure AI Fundamentals — Practice Question Bank
+# AI-901: Microsoft Azure AI Fundamentals — Practice Question Bank
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
-[![Exam](https://img.shields.io/badge/Exam-AI--900-blue?style=for-the-badge)](#table-of-contents)
+[![Exam](https://img.shields.io/badge/Exam-AI--901-blue?style=for-the-badge)](#table-of-contents)
 [![Questions](https://img.shields.io/badge/Questions-45%20Verified%20Questions-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](CHEAT_SHEET.md)
 
-Complete, cleaned, and verified Practice Question Bank for the **Microsoft Certified: Azure AI Fundamentals (AI-900)** exam. Curated directly from official Microsoft Learn assessments, practice exams, and training modules.
+Complete, cleaned, and verified Practice Question Bank for **Exam AI-901: Microsoft Azure AI Fundamentals** (**Microsoft Certified: Azure AI Fundamentals**). Curated directly from official Microsoft Learn assessments, practice exams, and training modules.
 
-> ⚡ **Quick Review:** Check out the [**AI-900 Exam Cheat Sheet**](./CHEAT_SHEET.md) for a high-yield summary of core Azure AI concepts, workloads, and exam traps before testing yourself below.
+> ⚡ **Quick Review:** Check out the [**AI-901 Exam Cheat Sheet**](./CHEAT_SHEET.md) for a high-yield summary of core Azure AI concepts, workloads, and exam traps before testing yourself below.
 
 ---
 

@@ -17,7 +17,7 @@ Welcome to the **Certification Practice Exams & Study Guides** repository! This 
 | **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | [⚡ Cheat Sheet](redis/redis-for-javascript-developers/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
 | **🔴 Redis** | [Redis Associate Cloud Operator](redis/redis-associate-cloud-operator/README.md) | **65 MCQs** | [⚡ Cheat Sheet](redis/redis-associate-cloud-operator/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-associate-cloud-operator/README.md) |
 | **☁️ Microsoft Azure** | [DP-900: Microsoft Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/dp-900-azure-data-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
-| **🤖 Microsoft Azure** | [AI-900: Microsoft Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | [⚡ Cheat Sheet](azure/ai-900-azure-ai-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
+| **🤖 Microsoft Azure** | [AI-901: Microsoft Azure AI Fundamentals](azure/ai-901-azure-ai-fundamentals/README.md) | **45 MCQs** | [⚡ Cheat Sheet](azure/ai-901-azure-ai-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-901-azure-ai-fundamentals/README.md) |
 | **🧠 Microsoft Azure** | [AI-103: Developing AI Apps and Agents on Azure](azure/ai-103-developing-ai-apps-and-agents/README.md) | **64 MCQs** | [⚡ Cheat Sheet](azure/ai-103-developing-ai-apps-and-agents/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-103-developing-ai-apps-and-agents/README.md) |
 | **🔒 Microsoft Azure** | [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/sc-900-security-compliance-identity/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
 
@@ -60,7 +60,7 @@ certification-exams/
     │   ├── README.md                            # 50 MCQs organized by 4 Official Domains
     │   └── CHEAT_SHEET.md                       # Last-Minute Cram Sheet & Comparison Matrices
     │
-    ├── ai-900-azure-ai-fundamentals/            # AI-900: Microsoft Azure AI Fundamentals
+    ├── ai-901-azure-ai-fundamentals/            # AI-901: Microsoft Azure AI Fundamentals
     │   ├── README.md                            # 45 MCQs on Generative AI, LLMs, Vision, NLP
     │   └── CHEAT_SHEET.md                       # Responsible AI, ML & Foundry SDK Cram Sheet
     │
