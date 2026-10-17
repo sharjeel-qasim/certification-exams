@@ -11,28 +11,29 @@ Welcome to the **Certification Practice Exams & Study Guides** repository! This 
 
 ## 🌟 Available Certifications
 
-| Technology / Category | Certification Exam | Practice Questions | Status | Direct Link |
-| :--- | :--- | :---: | :---: | :--- |
-| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-dotnet-developers/README.md) |
-| **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
-| **🔴 Redis** | [Redis Associate Cloud Operator](redis/redis-associate-cloud-operator/README.md) | **65 MCQs** | ✅ Verified | [View Questions →](redis/redis-associate-cloud-operator/README.md) |
-| **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
-| **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
-| **🧠 Microsoft Azure** | [AI-103 / AI-102: Azure AI Engineer Associate](azure/ai-103-azure-ai-engineer-associate/README.md) | **64 MCQs** | ✅ Verified | [View Questions →](azure/ai-103-azure-ai-engineer-associate/README.md) |
-| **🔒 Microsoft Azure** | [SC-900: Security, Compliance & Identity](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
-| **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | ⏳ In Planning | *Coming soon* |
-| **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | ⏳ In Planning | *Coming soon* |
+| Technology / Category | Certification Exam | Practice Questions | Study Guide | Status | Direct Link |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | [⚡ Cheat Sheet](redis/redis-for-dotnet-developers/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-for-dotnet-developers/README.md) |
+| **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | [⚡ Cheat Sheet](redis/redis-for-javascript-developers/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
+| **🔴 Redis** | [Redis Associate Cloud Operator](redis/redis-associate-cloud-operator/README.md) | **65 MCQs** | [⚡ Cheat Sheet](redis/redis-associate-cloud-operator/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-associate-cloud-operator/README.md) |
+| **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/dp-900-azure-data-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
+| **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | [⚡ Cheat Sheet](azure/ai-900-azure-ai-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
+| **🧠 Microsoft Azure** | [AI-103 / AI-102: Azure AI Engineer Associate](azure/ai-103-azure-ai-engineer-associate/README.md) | **64 MCQs** | [⚡ Cheat Sheet](azure/ai-103-azure-ai-engineer-associate/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-103-azure-ai-engineer-associate/README.md) |
+| **🔒 Microsoft Azure** | [SC-900: Security, Compliance & Identity](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/sc-900-security-compliance-identity/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
+| **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | — | ⏳ In Planning | *Coming soon* |
+| **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | — | ⏳ In Planning | *Coming soon* |
 
 ---
 
 ## 🧠 Question Bank Format & Structure
 
-Each question in this repository is presented in a clean, exam-ready format:
+Each question in this repository is designed for **active recall** and deep technical understanding:
 
-1. **Question & Scenario**: The exact question statement, scenarios, and code snippets.
-2. **Options / Answer Area**: Clear multiple-choice options (**A**, **B**, **C**, **D**) or dedicated **Answer Area Tables** for Yes/No statements and matching drills.
-3. **Correct Answer Key**: Clearly specified correct option(s) (e.g. `Correct answers: A, C` or `Correct answer: B`).
-4. **Brief Technical Explanation (`Why`)**: Clear, concise reasoning explaining why the answer is correct and resolving edge cases.
+1. **Question & Scenario**: Real-world exam scenarios, architecture tradeoffs, and code snippets.
+2. **Realistic Exam Options / Answer Area**: Multiple-choice options (**A**, **B**, **C**, **D**) with authentic exam-grade distractors, or dedicated **Answer Area Tables** for Yes/No statements and matching drills.
+3. **Interactive Spoiler Toggle (`<details>`)**: Answers are hidden behind a click-to-reveal **`💡 View Answer & Explanation`** toggle so you can test yourself without accidentally seeing the answer first.
+4. **Correct Answer + Distractor Breakdown (`Why`)**: Explains both **why the correct answer works** and **why the wrong options (exam traps) fail**, helping you master multiple concepts from every single question.
+5. **Last-Minute Cram Sheet (`CHEAT_SHEET.md`)**: Every certification includes a dedicated high-yield cheat sheet with comparison tables, CLI/SDK references, and common exam traps.
 
 ---
 
@@ -45,7 +46,7 @@ certification-exams/
 │
 ├── redis/                                       # Redis Certifications
 │   ├── redis-for-dotnet-developers/             # Redis for .NET Developers Exam
-│   │   ├── README.md                            # 65 MCQs + Verified Answers + Explanations
+│   │   ├── README.md                            # 65 MCQs + Active-Recall Spoilers + Explanations
 │   │   └── CHEAT_SHEET.md                       # Data structures, C# patterns & Cram Sheet
 │   │
 │   ├── redis-for-javascript-developers/         # Redis for JavaScript Developers
@@ -89,12 +90,22 @@ When adding a new certification:
 1. Create a dedicated directory under the relevant category folder:
    ```text
    <technology>/<certification-name>/README.md
+   <technology>/<certification-name>/CHEAT_SHEET.md
    ```
 2. Follow the established MCQ formatting template:
    - **Question Statement**: Scenario description, code blocks, and number of answers to select.
    - **Options**: Clear bulleted list of choices `A`, `B`, `C`, `D` or direct Answer Area table for Yes/No statements.
-   - **Correct Answer(s)**: `**Correct answer(s):** <Letter(s)>`
-   - **Brief Explanation**: `> **Why:** <Concise explanation of the underlying concept>`
+   - **Collapsible Answer & Explanation**:
+     ```markdown
+     <details>
+     <summary>💡 <b>View Answer & Explanation</b></summary>
+
+     **Correct answer:** <Letter(s)>
+
+     > **Why:** <Explanation of why the correct option is right AND why the wrong options are incorrect>
+
+     </details>
+     ```
 3. Update the [Available Certifications](#-available-certifications) table in this root `README.md`.
 
 ---

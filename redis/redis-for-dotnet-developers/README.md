@@ -38,9 +38,14 @@ Which of the following are accurate statements about Redis?
 - **D.** Redis uses multiple threads to execute commands in parallel, which is how a single instance can handle hundreds of thousands of operations per second.
 - **E.** Redis data structures like Hashes and Sorted Sets are client-side abstractions — the client library converts them into plain Strings before sending them to the server, which stores everything in a single flat key-value format.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answers:** A, C
 
 > **Why:** With `noeviction`, Redis rejects *writes* at the memory limit but keeps serving reads, so B is wrong. Command execution is single-threaded (D is wrong), and Hashes and Sorted Sets are real server-side types, not client shims (E is wrong). Persistence being configurable and opt-in, and RAM residency being the latency story, are the two accurate statements.
+
+</details>
 
 ---
 
@@ -55,9 +60,14 @@ You're inspecting the raw traffic between the client and server on an applicatio
 - **D.** Clients send commands to the Redis server as RESP arrays of bulk strings. For example, `SET mykey myvalue` is transmitted as an array of three bulk strings: `SET`, `mykey`, and `myvalue`.
 - **E.** RESP responses are type-prefixed — the first byte of each response indicates its wire type, such as `+` for simple strings, `-` for errors, and `:` for integers. This allows parsers to determine how to read each response from the byte stream.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answers:** D, E
 
-> **Why:** RESP is plain text and readable with ordinary tools like `tcpdump`. Commands go out as arrays of bulk strings, and every reply carries a one-byte type prefix (`+` simple string, `-` error, `:` integer, `$` bulk string, `*` array). It is unencrypted by default — TLS is configured separately.
+> **Why:** RESP is the standard wire protocol shared by all Redis clients (A is wrong) and is human-readable plain text that can be inspected with ordinary tools like `tcpdump` (B is wrong). Commands go out as arrays of bulk strings, and every reply carries a one-byte type prefix (`+` simple string, `-` error, `:` integer, `$` bulk string, `*` array). It is unencrypted by default — TLS is configured separately (C is wrong).
+
+</details>
 
 ---
 
@@ -69,9 +79,14 @@ Which statement most accurately describes Redis transactions?
 - **C.** Redis transactions provide SQL-style rollback, so if any command fails during execution, all earlier commands in the transaction are automatically undone.
 - **D.** Redis transactions execute each command immediately when it is issued after `MULTI`, and `EXEC` only asks Redis to return the buffered results.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `MULTI` queues commands and `EXEC` runs them as one isolated unit, but Redis has no rollback: if a command fails at execution time, the others still stand.
+> **Why:** `MULTI` queues commands and `EXEC` runs them sequentially as one isolated unit without other clients interleaving. Redis does not block other clients while commands are merely queued after `MULTI` (A is wrong), does not support SQL-style rollback if a command fails at execution time (C is wrong), and does not execute queued commands until `EXEC` is called (D is wrong).
+
+</details>
 
 ---
 
@@ -83,9 +98,14 @@ Which of the following is NOT an example of an atomic operation in Redis?
 - **C.** Executing a series of commands in a pipeline
 - **D.** Incrementing a numeric counter
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** Every individual Redis command is atomic. A pipeline only batches network round trips — other clients' commands can still interleave between the pipelined commands, so the batch as a whole is not atomic.
+> **Why:** Every individual Redis command — such as appending to a list (`RPUSH`, A), asynchronously unlinking a key (`UNLINK`, B), or incrementing a counter (`INCR`, D) — executes atomically on the single-threaded command loop. A pipeline (C) only batches network round trips; other clients' commands can still interleave between the pipelined commands, so the batch as a whole is not atomic.
+
+</details>
 
 ---
 
@@ -100,9 +120,14 @@ Which of the following are valid Redis key names under Redis's default key-size 
 - **D.** The "winking face" emoji
 - **E.** The raw bytes of a compressed dump of Wikipedia, approximately 1 GB in size
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answers:** A, B, C, D
 
-> **Why:** Keys are binary-safe byte strings capped at 512 MB, so raw PDF bytes, an empty string, and an emoji are all legal key names; 1 GB exceeds the cap. Option C sits exactly on the 512 MB boundary — the exam counts it as valid.
+> **Why:** Keys are binary-safe byte strings capped at 512 MB, so raw PDF bytes, an empty string, and an emoji are all legal key names; 1 GB exceeds the 512 MB cap (E is wrong). Option C sits exactly on the 512 MB boundary — the exam counts it as valid.
+
+</details>
 
 ---
 
@@ -114,9 +139,14 @@ Your operations team monitors the Redis server and notices that your .NET applic
 - **C.** `GetDatabase()` opens a new TCP connection each time it is called. The two connections likely correspond to two `GetDatabase()` calls somewhere in the application.
 - **D.** The `ConnectionMultiplexer` opens one connection for reading and a separate connection for writing to avoid contention between inbound and outbound traffic on a single socket.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `StackExchange.Redis` opens a second physical connection for pub/sub, because a subscriber connection cannot interleave ordinary commands. It is not a replica, and `GetDatabase()` does not open sockets — `IDatabase` is a cheap handle over the existing multiplexer.
+> **Why:** `StackExchange.Redis` opens a second physical connection for pub/sub, because a subscriber connection cannot interleave ordinary commands. It is not a standby failover socket (B is wrong), `GetDatabase()` returns a lightweight handle over the existing multiplexer rather than opening new TCP sockets (C is wrong), and reads and writes share the same interactive connection rather than splitting across sockets (D is wrong).
+
+</details>
 
 ---
 
@@ -128,9 +158,14 @@ Under load, 50 concurrent requests each issue Redis commands at the same time th
 - **C.** It queues all commands into a single FIFO buffer and processes them one at a time, waiting for each response before sending the next command. This guarantees correctness but limits throughput to one in-flight command at a time regardless of how many threads are active.
 - **D.** It sends commands from all threads over a shared connection without waiting for each response before sending the next. The library tracks which response belongs to which caller and dispatches results back to the correct thread as they arrive.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** This is what multiplexing means: commands from many threads share one socket, are written without waiting for prior replies, and the library correlates each incoming reply back to the Task that is waiting for it.
+> **Why:** This is what multiplexing means: commands from many threads share one socket, are pipelined without waiting for prior replies, and the library correlates each incoming FIFO reply back to the awaiting `Task`. It does not check out pooled connections per thread (A is wrong), does not open a new TCP connection per command (B is wrong), and does not block on each response before writing the next command (C is wrong).
+
+</details>
 
 ---
 
@@ -165,9 +200,14 @@ Under load, 50 concurrent requests each issue Redis commands at the same time th
   ```
   The `ConnectionMultiplexer` has no built-in mechanism for handling an unavailable server at startup, so retry logic must be implemented manually.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** In `StackExchange.Redis`, setting `abortConnect=false` in the connection string instructs the `ConnectionMultiplexer` not to throw an exception at startup if the Redis server is temporarily unreachable, and to automatically continue retrying connections in the background until available. Manual `try/catch` with `Thread.Sleep` is an anti-pattern that blocks application threads.
+> **Why:** In `StackExchange.Redis`, setting `abortConnect=false` in the connection string instructs the `ConnectionMultiplexer` not to throw an exception at startup if the Redis server is temporarily unreachable, and to automatically continue retrying connections in the background until available. Setting `connectTimeout=0` does not wait indefinitely (A is wrong), `ConnectAsync` still throws when `abortConnect` defaults to `true` (C is wrong), and manual `try/catch` with `Thread.Sleep` is an anti-pattern when built-in background connection retry exists (D is wrong).
+
+</details>
 
 ---
 
@@ -179,9 +219,14 @@ Your .NET application uses a shared `ConnectionMultiplexer` singleton. During a 
 - **C.** The `ConnectionMultiplexer` permanently enters a faulted state after the connection drops. The application must catch the disconnection event and create a new `ConnectionMultiplexer` instance to restore Redis functionality.
 - **D.** The `ConnectionMultiplexer` reconnects automatically in the background. Commands issued while Redis is unavailable may fail with timeout or connection exceptions; the application should handle those failures and retry only when safe.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** The multiplexer reconnects on its own, so no new instance is needed — but commands issued during the gap fail rather than queue silently. Treat them as ordinary transient faults and retry only where a retry is safe.
+> **Why:** The multiplexer reconnects on its own, so no new instance is needed — but commands issued during the outage fail with connection or timeout exceptions rather than queuing silently. Treat them as ordinary transient faults and retry only where a retry is safe. The multiplexer does not maintain a local in-memory replica (A is wrong), does not silently discard commands without throwing (B is wrong), and does not permanently fault on disconnect (C is wrong).
+
+</details>
 
 ---
 
@@ -193,9 +238,14 @@ After a deployment, you need to run the `INFO` command from your .NET applicatio
 - **C.** Server commands are accessed by casting `IDatabase` to `IServer` — they implement the same underlying interface, but the server methods are explicitly hidden and only accessible through the cast.
 - **D.** Server commands like `INFO` are not supported in `StackExchange.Redis`. You must use `db.Execute("INFO")` to send raw command strings, and parse the response manually.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** Server-wide commands (`INFO`, `CONFIG`, `CLIENT LIST`, `SLOWLOG`) live on `IServer`, obtained from `GetServer`; `IDatabase` deliberately exposes only keyspace commands. Note: some `IServer` methods such as `FlushDatabase` and `Keys` additionally require `allowAdmin=true` in the connection string, though `INFO` does not.
+> **Why:** Server-wide commands (`INFO`, `CONFIG`, `CLIENT LIST`, `SLOWLOG`) live on `IServer`, obtained from `GetServer`; `IDatabase` deliberately exposes only keyspace commands. Note: some `IServer` methods such as `FlushDatabase` and `Keys` additionally require `allowAdmin=true` in the connection string, though `INFO` does not. Setting `allowAdmin=true` does not add server methods to `IDatabase` (B is wrong), `IDatabase` cannot be cast to `IServer` (C is wrong), and `IServer.Info()` is natively supported without raw `db.Execute("INFO")` calls (D is wrong).
+
+</details>
 
 ---
 
@@ -209,9 +259,14 @@ Your team is deciding how to cache product records. One developer proposes stori
 - **C.** Hashes enforce type constraints on field values, so storing stock as a number prevents accidental non-numeric assignments, unlike a serialized String, which stores the entire record as untyped text.
 - **D.** A Hash allows updating the stock field directly without deserializing and rewriting the entire record.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** A Hash lets you `HSET` or `HINCRBY` one field; a serialized String forces a read, deserialize, modify, serialize, write cycle for any change. Hashes do not enforce types (C is wrong) and are not universally smaller (A is wrong).
+> **Why:** A Hash lets you `HSET` or `HINCRBY` one field in place; a serialized String forces a read, deserialize, modify, serialize, write cycle for any change. Hashes are not universally smaller than Strings for all data sizes (A is wrong), store field values as byte strings that are parsed as numbers only when commands like `HINCRBY` run (B is wrong), and do not enforce schema or type constraints (C is wrong).
+
+</details>
 
 ---
 
@@ -234,9 +289,14 @@ bool result = db.HashSet("product:42", "stock", "125");
 - **C.** `true` — `HashSet` returns true because the stock value was successfully changed from "150" to "125".
 - **D.** `false` — when setting a single field, `HashSet` returns true if the field is new and false if the field already existed and was updated. Since stock already existed, the return is false.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** Single-field `HSET` returns `1` only when the field is newly created. Updating an existing field returns `0`, which `StackExchange.Redis` surfaces as `false`. The write happens either way — the return value reports novelty, not success.
+> **Why:** Single-field `HSET` returns `1` only when the field is newly created. Updating an existing field returns `0`, which `StackExchange.Redis` surfaces as `false`. The write happens either way — the return value reports novelty, not success. `StackExchange.Redis` defaults to `When.Always` so the update is not skipped (A is wrong), and `HashSet` does not return `true` when overwriting an existing field (B and C are wrong).
+
+</details>
 
 ---
 
@@ -248,9 +308,14 @@ After a flash sale ends, a cleanup routine removes the discount field from all p
 - **C.** `HDEL` on the last remaining field returns an error, signaling that `DEL` must be used instead to remove the final field.
 - **D.** The key persists as an empty Hash until explicitly deleted with `DEL`. `HDEL` only removes fields, not the key itself.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** Redis has no empty collections. Removing the last field with `HDEL` deletes the key itself, so the scheduled `UNLINK` has nothing to clean up.
+> **Why:** Redis has no empty collections. Removing the last field with `HDEL` immediately deletes the key itself, so the scheduled `UNLINK` has nothing to clean up. Redis never keeps zero-length Hashes around (A and D are wrong), and `HDEL` removes the final field cleanly without returning an error (C is wrong).
+
+</details>
 
 ---
 
@@ -262,9 +327,14 @@ You're building a product page that displays only the item's name and price. The
 - **C.** `db.HashGetAll("product:42");`
 - **D.** `db.StringGet(new RedisKey[] { "product:42:name", "product:42:price" });`
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `HashGet` with an array of fields maps to `HMGET`: one round trip, only the requested fields. `HGETALL` would pull all six, and `HSCAN` does not take a pattern of that form for field selection.
+> **Why:** `HashGet` with an array of fields maps to `HMGET`: one round trip, only the requested fields. `HSCAN` iterates fields with a glob pattern rather than selecting exact fields in one call (A is wrong), `HGETALL` pulls all six fields unnecessarily (C is wrong), and `StringGet` queries standalone String keys rather than fields inside the `product:42` Hash (D is wrong).
+
+</details>
 
 ---
 
@@ -276,9 +346,14 @@ A supplier import job refreshes name, price, and stock on every run, but the `fi
 - **C.** Use `HSET product:42 firstSeenAt <timestamp>`, because `HSET` refuses to overwrite existing fields.
 - **D.** Store `firstSeenAt` in a separate key with `SETNX`, because Hash fields cannot be conditionally set.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `HSETNX` sets a hash field only if it does not already exist, atomically on the server. The `HEXISTS`-then-`HSET` sequence in B has a race window between the two commands, which is exactly the failure mode with multiple workers.
+> **Why:** `HSETNX` sets a hash field only if it does not already exist, atomically on the server. The `HEXISTS`-then-`HSET` sequence in B has a race window between the two commands where concurrent workers can overwrite each other, standard `HSET` always overwrites existing fields (C is wrong), and `HSETNX` provides native conditional field writes on Hashes so a separate String key is unnecessary (D is wrong).
+
+</details>
 
 ---
 
@@ -290,9 +365,14 @@ Your team has been caching flat product records as Hashes. A new requirement arr
 - **C.** JSON allows you to read and update nested paths like `$.dimensions.weight` directly, whereas a Hash would require you to flatten the structure or serialize the nested data into a single field.
 - **D.** JSON automatically indexes all paths for searching, eliminating the need for key naming conventions.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** Once the data nests, a Hash forces you either to flatten paths into field names or to bury a JSON blob inside one field. RedisJSON reads and writes nested paths in place. The other options claim capabilities RedisJSON does not have.
+> **Why:** Once the data nests, a Hash forces you either to flatten paths into field names or to bury a JSON blob inside one field. RedisJSON reads and writes nested paths in place. RedisJSON stores documents as a parsed binary tree rather than compressing them below Hash memory usage (A is wrong), TTLs apply only to the top-level Redis key rather than individual JSON paths (B is wrong), and secondary indexing requires explicitly defining an index with RediSearch (`FT.CREATE`) rather than happening automatically (D is wrong).
+
+</details>
 
 ---
 
@@ -304,9 +384,14 @@ You store a product as a Redis JSON document with nested fields and an array of 
 - **C.** Paths using `$` can return arrays of matches, even when the path currently matches one value.
 - **D.** `JSON.GET` can only read top-level fields unless the document was indexed first.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** A JSONPath beginning with `$` is a multi-match expression, so RedisJSON wraps results in an array even when exactly one node matches. Code that assumes a scalar will break the first time it does.
+> **Why:** A JSONPath beginning with `$` is a multi-match expression, so RedisJSON wraps results in an array even when exactly one node matches. Code that assumes a scalar will break the first time it does. RedisJSON preserves nested document hierarchy rather than flattening paths (A is wrong), preserves JSON data types in responses rather than converting numbers to strings (B is wrong), and reads any nested path via `JSON.GET` without requiring an index (D is wrong).
+
+</details>
 
 ---
 
@@ -318,9 +403,14 @@ A supplier notifies you that the weight for product 42 has changed. The product 
 - **C.** `json.Set("product:42", "$.weight", 0.6)`
 - **D.** `json.Set("product:42", "$.dimensions", 0.6)`
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `JSON.SET` with a specific path writes just that node. Passing `"$"` replaces the entire document, and `$.weight` / `$.dimensions` point at the wrong nodes.
+> **Why:** `JSON.SET` with a specific path writes just that node. Passing `"$"` (B) replaces the entire root document, `$.weight` (C) targets a top-level `weight` field instead of the nested one, and `$.dimensions` (D) overwrites the entire `dimensions` object with a scalar number.
+
+</details>
 
 ---
 
@@ -339,9 +429,14 @@ var product = json.Get("product:42", path: "$");
 - **C.** The tags field was removed from the document entirely — the product still exists but no longer has a tags property.
 - **D.** The entire `product:42` key was deleted because removing tags left an incomplete document.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** `JSON.DEL` on `$.tags` removes the property itself, not just its contents — the document remains, minus that field. It works on any path, root-level included.
+> **Why:** `JSON.DEL` on `$.tags` removes the property itself, not just its contents — the document remains, minus that field. It does not leave an empty array `[]` behind (A is wrong), works on any path including root-level fields (B is wrong), and only deletes the entire key if the root path `"$"` is deleted (D is wrong).
+
+</details>
 
 ---
 
@@ -353,9 +448,14 @@ After running both Hashes and JSON documents in production for several weeks, yo
 - **C.** Use JSON for read-heavy workloads and Hashes for write-heavy workloads, since Hashes are always faster for write operations.
 - **D.** Use JSON when the data has nested structures or arrays that need to be queried or updated by path; use Hashes when the data is a flat set of field-value pairs with no nesting.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** The deciding factor is data shape and access pattern: nested structures or arrays addressed by path favour JSON; flat field-value records favour Hashes. The other options invent thresholds and TTL rules that do not exist.
+> **Why:** The deciding factor is data shape and access pattern: nested structures or arrays addressed by path favour JSON; flat field-value records favour Hashes. Hashes remain memory-efficient well beyond 10 fields (A is wrong), both Hashes and JSON keys support standard Redis key expiration (B is wrong), and choosing between them is driven by document structure rather than a blanket read-vs-write split (C is wrong).
+
+</details>
 
 ---
 
@@ -369,9 +469,14 @@ Your team is implementing cache-aside for product lookups. A request comes in fo
 - **C.** The application writes the product to Redis, then reads it back from Redis, then returns it to the caller.
 - **D.** The application reads from Redis and gets a miss, queries the database, writes the result to Redis, and returns it to the caller.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** Cache-aside puts the application in control: read cache, on a miss read the database, write the result back to the cache, return it. Redis never talks to your database on its own.
+> **Why:** Cache-aside puts the application in control: read cache, on a miss read the database, write the result back to the cache, return it. Redis never talks to your database on its own (A and B are wrong), and on a miss the application must query the database first and does not need a redundant read-back from Redis after caching (C is wrong).
+
+</details>
 
 ---
 
@@ -403,9 +508,14 @@ Which approach is more consistent with the cache-aside pattern, and why?
 - **C.** Approach A, because updating the cache directly avoids a subsequent cache miss and keeps the cache warm at all times. This reduces latency for the next read and ensures users always see the latest price immediately.
 - **D.** Neither. Cache-aside requires the database to notify Redis directly when data changes through an event-driven push, so the application should not be involved in invalidation at all.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** Invalidate rather than update. Writing the cache on the write path creates ordering races between the database write and the cache write; deleting the key lets the next read repopulate from the source of truth. The brief unavailability A worries about is just one cache miss.
+> **Why:** Invalidate rather than update. Writing the cache on the write path creates ordering races between concurrent database writes and cache writes (C is wrong); deleting the key lets the next read repopulate from the source of truth. Deleting the key does not make the product unavailable — it merely causes one cache miss on the next read (A is wrong), and in cache-aside the application itself manages cache invalidation rather than relying on database push notifications (D is wrong).
+
+</details>
 
 ---
 
@@ -417,9 +527,14 @@ Your team is configuring Redis with `maxmemory` for a cache-aside layer. Some ca
 - **C.** `allkeys-lru` evicts the largest keys first, `volatile-lru` evicts the least recently used expiring keys, and `noeviction` disables expiration so keys stay until deleted.
 - **D.** `allkeys-lru` and `volatile-lru` both evict from the full keyspace, but `volatile-lru` gives priority to keys with shorter TTLs. `noeviction` keeps accepting writes by spilling older values to disk.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** The `volatile-*` policies consider only keys carrying a TTL, the `allkeys-*` policies consider the whole keyspace, and `noeviction` turns memory pressure into write errors while reads continue to work.
+> **Why:** The `volatile-*` policies consider only keys carrying a TTL, the `allkeys-*` policies consider the whole keyspace, and `noeviction` turns memory pressure into write errors while reads continue to work. B is wrong because `allkeys-lru` evicts across all keys and `noeviction` still allows reads; C is wrong because `allkeys-lru` tracks recency of use rather than key size and `noeviction` does not disable TTL expiration; D is wrong because `volatile-lru` ignores persistent keys and `noeviction` rejects writes instead of spilling to disk.
+
+</details>
 
 ---
 
@@ -431,9 +546,14 @@ Your Redis instance is configured with `maxmemory` and the `allkeys-lru` evictio
 - **C.** The application continues to function correctly — evicted keys appear as cache misses, and the cache-aside logic repopulates them from the database on the next read.
 - **D.** The application must be updated to listen for eviction events and preemptively repopulate the cache, otherwise users will see empty product records.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** Cache-aside is eviction-tolerant by design: an evicted key is indistinguishable from a key that was never cached, and the miss path rebuilds it. No eviction listener is needed.
+> **Why:** Cache-aside is eviction-tolerant by design: an evicted key is indistinguishable from a key that was never cached, and the miss path rebuilds it. Evicted keys return a normal cache miss rather than throwing errors (A is wrong), Redis deletes evicted keys from memory rather than moving them to a secondary storage tier (B is wrong), and the read path lazily repopulates misses without needing eviction event listeners (D is wrong).
+
+</details>
 
 ---
 
@@ -467,9 +587,14 @@ What is causing the stale data?
 - **C.** `HashGetAllAsync` caches results internally in the `ConnectionMultiplexer`, so even after the key is deleted from Redis, the client returns the previously retrieved `HashEntry[]` array.
 - **D.** `KeyDeleteAsync` and `UpdateProductPriceAsync` run on different threads due to the `ConnectionMultiplexer`'s multiplexed I/O. The database update may complete before the Redis delete because the multiplexer reorders commands for throughput optimization.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** Order matters. Deleting before the database write leaves a window in which a concurrent read repopulates the cache from the not-yet-updated database, and that stale value then survives until its TTL. Update the database first, then invalidate.
+> **Why:** Order matters. Deleting before the database write leaves a window in which a concurrent read repopulates the cache from the not-yet-updated database, and that stale value then survives until its TTL. Update the database first, then invalidate. `HashSetAsync` works normally after `KeyDeleteAsync` (A is wrong), `ConnectionMultiplexer` does not cache query responses client-side (C is wrong), and `await` sequentially orders `KeyDeleteAsync` before `UpdateProductPriceAsync` (D is wrong).
+
+</details>
 
 ---
 
@@ -481,9 +606,14 @@ Your team has been caching individual product records as Hashes. Now the product
 - **C.** A Hash is actually the better choice here because each product in the result set maps naturally to a Hash field, and `HGETALL` retrieves them all at once as one complete response.
 - **D.** A Hash is required whenever a cached value contains multiple products, because Redis Strings can only store a single scalar value and cannot hold serialized arrays or nested objects.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** A query result is an opaque blob you read whole and replace whole. Hash fields only pay off when you address individual fields, which never happens here.
+> **Why:** A query result is an opaque blob you read whole and replace whole. Hash fields only pay off when you address individual fields, which never happens here. The choice is driven by access pattern rather than a rigid single-vs-multiple record rule (A is wrong), mapping a sorted list of products into unordered Hash fields loses ordering and adds unnecessary complexity (C is wrong), and Redis Strings can store any serialized JSON array or binary payload up to 512 MB (D is wrong).
+
+</details>
 
 ---
 
@@ -495,9 +625,14 @@ Your team caches many listing-page query results with a 5-minute TTL (`EX: 300`)
 - **C.** The cache hit rate will drop. More query results will expire before reuse, causing more reads to fall through to the database.
 - **D.** Shorter TTLs will cause cache stampedes for most query keys, because every expired entry forces multiple requests to hit the database at the same time.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** A shorter TTL trades freshness for hit rate: more cached results expire before they are reused, so more requests fall through to the database. The other options describe mechanisms Redis does not have.
+> **Why:** A shorter TTL trades freshness for hit rate: more cached results expire before they are reused, so more requests fall through to the database. Clients do not need to listen to expiration events for standard cache-aside (A is wrong), Redis handles TTL expiration with negligible CPU overhead (B is wrong), and stampedes only occur on high-concurrency hot keys rather than most query keys (D is wrong).
+
+</details>
 
 ---
 
@@ -551,9 +686,14 @@ You're implementing async query caching for the product listing page. Your team 
   }
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** The correct implementation checks the cache first, deserializes on a hit, and serializes with a TTL on the miss path. B never reads the cache, C stores an un-serialized object, and D casts a `RedisValue` straight to `List<Product>`.
+> **Why:** The correct implementation checks the cache first, deserializes on a hit, and serializes with a TTL on the miss path. B never reads the cache, C passes an un-serialized `List<Product>` to `StringSetAsync`, and D attempts an invalid cast from `RedisValue` directly to `List<Product>`.
+
+</details>
 
 ---
 
@@ -565,9 +705,14 @@ During a flash sale, one listing query is requested hundreds of times per second
 - **C.** Use a miss-time Redis lock. When the key expires, one request rebuilds while the remaining requests wait until the fresh value is written.
 - **D.** Apply TTL jitter to query cache keys so many listing results are less likely to expire at the same instant.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** Stale-while-revalidate serves the existing value — which is allowed to be 60 seconds stale — while a single worker refreshes it in the background. No request waits, and only one request reaches the database. A lock (C) would make requests wait; jitter (D) helps across many keys, not one hot key.
+> **Why:** Stale-while-revalidate serves the existing value — which is allowed to be up to 60 seconds stale — while a single worker refreshes it in the background. No request waits, and only one request reaches the database. Extending the TTL to several hours violates the 60-second staleness bound (A is wrong), a miss-time lock makes waiting requests spike latency (C is wrong), and TTL jitter spreads expiration across many keys rather than protecting one hot key (D is wrong).
+
+</details>
 
 ---
 
@@ -579,9 +724,14 @@ Your team is investigating two patterns of unexpected key removal in Redis. In t
 - **C.** The first is memory-based eviction using volatile-ttl, which removes the key closest to its expiration deadline. The second is TTL-based expiration where short, randomized TTLs are causing keys to expire unpredictably under load.
 - **D.** Both are TTL-based expiration. The second scenario occurs because Redis uses lazy expiration, deferring deletion of expired keys until they are accessed, so keys appear to vanish unpredictably rather than at a fixed time.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** A fixed lifetime regardless of access is TTL expiry. Removal that tracks write volume with a rising eviction counter at the memory limit is maxmemory eviction. They are independent mechanisms, and `allkeys-*` eviction can remove keys that have no TTL at all.
+> **Why:** A fixed lifetime regardless of access is TTL expiry. Removal that tracks write volume with a rising eviction counter at the memory limit is maxmemory eviction. They are independent mechanisms: `allkeys-*` eviction can remove persistent keys that have no TTL at all (A is wrong), predictable fixed-duration removal is TTL expiry rather than `volatile-ttl` eviction (C is wrong), and an increasing eviction counter at `maxmemory` indicates memory eviction rather than lazy TTL expiration (D is wrong).
+
+</details>
 
 ---
 
@@ -595,9 +745,14 @@ You're debugging a caching issue and need to check when a specific product key i
 - **C.** The key `product:42` has an expiration set, but it has less than 1 second remaining before it expires.
 - **D.** The key `product:42` does not exist in the database at all.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `EXPIRETIME` returns the absolute expiry timestamp, `-1` when the key exists but has no expiry, and `-2` when the key does not exist. Confusing `-1` with `-2` is the trap here.
+> **Why:** `EXPIRETIME` returns the absolute Unix expiry timestamp, `-1` when the key exists but has no expiry, and `-2` when the key does not exist (D is wrong). Keys created with `SETNX` work normally with `EXPIRETIME` (B is wrong), and a key with less than 1 second remaining still returns its positive Unix expiration timestamp (C is wrong).
+
+</details>
 
 ---
 
@@ -625,9 +780,14 @@ After deploying this feature, the ops team notices that some product keys are ne
 - **C.** The `if (!cached.IsNull)` check prevents the method from running when the key does not exist, but it also prevents the method from restoring the TTL on keys that have already expired and been recreated by another process.
 - **D.** Calling `db.StringGetAsync` on a key resets its TTL to infinite, because Redis treats any read as a signal that the key is still in active use.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `SET` replaces the key and drops its TTL unless you pass `KEEPTTL` or re-specify the expiry. The update path here silently converts every product it touches into a permanent key.
+> **Why:** `SET` replaces the key and drops its TTL unless you pass `KEEPTTL` or re-specify the expiry. The update path here silently converts every product it touches into a permanent key. TTL is stored in Redis keyspace metadata rather than inside the JSON payload (B is wrong), the `!cached.IsNull` check merely guards against cache misses (C is wrong), and `StringGetAsync` reads never alter or reset a key's TTL (D is wrong).
+
+</details>
 
 ---
 
@@ -653,9 +813,14 @@ What happens to the TTL on `product:42` after the update call?
 - **C.** The TTL is removed entirely because `HashSet` overwrites the key, and any overwrite discards the existing expiration — similar to how `StringSet` behaves on a String key.
 - **D.** The TTL is reset to 300 seconds because any write operation on a key automatically refreshes its expiration.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `HSET` writes a field inside an existing key. The TTL belongs to the key, not the field, so it keeps counting down. Only commands that replace the key — `SET` without `KEEPTTL`, for instance — clear it.
+> **Why:** `HSET` writes a field inside an existing key. The TTL belongs to the key, not the field, so it keeps counting down. Preserving the key's TTL does not depend on field-level expiration (B is wrong), `HSET` does not replace the key or clear its TTL like `SET` does (C is wrong), and writing to a key does not automatically refresh its TTL back to 300 seconds (D is wrong).
+
+</details>
 
 ---
 
@@ -667,9 +832,14 @@ Your team is evaluating persistence for a Redis product cache that uses cache-as
 - **C.** Disable persistence and require the application to pre-fetch the full product catalog before accepting traffic.
 - **D.** Enable AOF with `appendfsync everysec` so Redis replays recent cache writes and prioritizes lower data loss.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** RDB gives cheap writes and fast restart loading from a point-in-time snapshot, which is the right trade when Redis is not the source of truth and losing the last few minutes is acceptable. AOF options optimise for a loss window this use case does not need.
+> **Why:** RDB gives cheap writes and fast restart loading from a compact point-in-time snapshot, which is the right trade when Redis is not the source of truth and losing the last few minutes is acceptable. AOF with `always` (A) or `everysec` (D) adds write overhead and slower startup log replay for durability guarantees a cache does not need, while disabling persistence and pre-fetching the entire catalog (C) delays startup and overloads the database.
+
+</details>
 
 ---
 
@@ -686,9 +856,14 @@ None of these operations depend on each other's results. A team member suggests 
 - **C.** A batch is more appropriate because the three operations are independent reads and writes with no need for atomicity. A batch groups them for efficiency without adding transactional guarantees that are not needed here.
 - **D.** Neither is appropriate because `StackExchange.Redis` already multiplexes concurrent callers efficiently, so explicitly batching independent operations from one caller does not improve throughput.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** Reach for a transaction only when you need atomicity or isolation. These three operations are independent, so a batch — which pipelines them into one round trip without transactional semantics — is the cheaper correct tool. Batches happily contain reads (B is wrong).
+> **Why:** Reach for a transaction only when you need atomicity or isolation. These three operations are independent, so a batch — which pipelines them into one round trip without `MULTI`/`EXEC` overhead — is the cheaper correct tool (A is wrong). Batches support both reads and writes (B is wrong), and batching multiple independent calls from a single caller still reduces latency compared to awaiting three sequential round trips (D is wrong).
+
+</details>
 
 ---
 
@@ -713,9 +888,14 @@ The product's stock is currently 10 and the customer's cart is empty. What value
 - **C.** Both are null because transaction results are not available until a separate `GetResults()` call.
 - **D.** Stock is -1 and Cart added is 1. The results reflect the delta applied, not the post-operation state.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** Inside a `StackExchange.Redis` transaction the Tasks complete once `ExecuteAsync` returns. `HINCRBY` returns the value after the increment (9), and `SADD` returns true for a member that was not already present.
+> **Why:** Inside a `StackExchange.Redis` transaction the Tasks complete once `ExecuteAsync` returns. `HINCRBY` returns the value after the increment (`9`), and `SADD` returns `true` for a member that was not already present. Neither command returns `"OK"` status strings (B is wrong), transaction Tasks populate automatically upon `ExecuteAsync()` without a `GetResults()` call (C is wrong), and `HashIncrementAsync` returns the post-increment value (`9`) while `SetAddAsync` returns a `bool` (`true`) rather than deltas (D is wrong).
+
+</details>
 
 ---
 
@@ -746,9 +926,14 @@ During load testing with stock set to 1, two customers call this function simult
 - **C.** The client may reorder `SetAddAsync` ahead of `HashSetAsync` for throughput. The fix is to wrap both commands in a transaction without conditions, which guarantees only one request can complete successfully.
 - **D.** `HashGetAsync` returns a stale cached value from the client library, so both requests see 1 after the first write. The fix is to disable client-side caching on the read so each request sees the latest server value.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** A textbook check-then-act race: both callers read stock = 1 before either writes, so both pass the guard. `HINCRBY` with -1 performs the read and the write in one atomic server-side step, so exactly one caller drives the value below zero and can be rejected or compensated.
+> **Why:** A textbook check-then-act race: both callers read `stock = 1` before either writes, so both pass the guard. `HINCRBY` with `-1` performs the read and the write in one atomic server-side step, so exactly one caller drives the value below zero and can be rejected or compensated. The race stems from separate network round trips rather than `int.Parse` CPU overhead (B is wrong), an unconditional `MULTI`/`EXEC` transaction after reading `stock = 1` still lets both callers write `0` (C is wrong), and `StackExchange.Redis` does not cache `HashGetAsync` responses locally (D is wrong).
+
+</details>
 
 ---
 
@@ -760,9 +945,14 @@ A Redis `INFO keyspace` report includes this line: `db0:keys=25,expires=11,avg_t
 - **C.** 11 keys have already expired but have not been deleted yet.
 - **D.** 11 keys have an expiration set.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** In `INFO keyspace`, `keys` is the total number of keys in the database and `expires` is how many of those carry a TTL. It says nothing about eviction or about keys already past their expiry.
+> **Why:** In `INFO keyspace`, `keys` is the total number of keys in the database (`25`) and `expires` is how many of those currently carry a TTL (`11`). That means `14` keys (`25 - 11`) are permanent without an expiration (A is wrong), evicted keys are tracked separately under `evicted_keys` in `INFO stats` (B is wrong), and `expires` counts active keys with a scheduled TTL rather than already-expired keys awaiting deletion (C is wrong).
+
+</details>
 
 ---
 
@@ -774,9 +964,14 @@ A production Redis database has millions of keys. Your team needs to find keys m
 - **C.** It is one step in a cursor scan. The caller must continue until the cursor returns to 0.
 - **D.** It is equivalent to `KEYS product:*`, but safer because it only checks keys with the `product:` prefix.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** `SCAN` is a cursor-based iterator, not a one-shot query. `COUNT` is a hint about how much work each call does, not a result limit, and you must keep calling until the returned cursor is 0.
+> **Why:** `SCAN` is a cursor-based iterator, not a one-shot query. Starting at cursor `0` only initiates the first iteration rather than returning all matches in one call (A is wrong), `COUNT 1000` is a hint about how many hash slots to inspect per call rather than a guarantee of 1000 returned matches (B is wrong), and `SCAN` still walks the full keyspace hash table incrementally rather than only inspecting keys with the `product:` prefix (D is wrong).
+
+</details>
 
 ---
 
@@ -788,9 +983,14 @@ You run `TTL product:45`, and Redis returns `-1`. What does that mean?
 - **C.** The key does not exist.
 - **D.** The key exists but has no expiration set.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** `TTL` returns `-1` for "key exists, no expiry" and `-2` for "key does not exist". The two look similar and mean very different things when you are debugging a cache.
+> **Why:** `TTL` returns `-1` for "key exists, no expiry" and `-2` for "key does not exist" (C is wrong). A key with less than one second remaining returns `0` in whole seconds (A is wrong), and Redis always knows a key's expiration state (B is wrong).
+
+</details>
 
 ---
 
@@ -804,9 +1004,14 @@ An app verifies a generated list of cache keys by running `EXISTS` and comparing
 - **C.** Redis treats duplicate key arguments as a syntax error and returns no count.
 - **D.** Redis removes duplicate names before counting, so the check can fail even when all required keys exist.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `EXISTS` with multiple arguments counts occurrences, not distinct keys. A key listed twice contributes 2 to the total, which can make the count match the list length even though a different, genuinely required key is missing.
+> **Why:** `EXISTS` with multiple arguments counts each existing key occurrence rather than distinct keys. A key listed twice contributes `2` to the total, which can make the count match the list length even though a different, genuinely required key is missing. Variadic `EXISTS` returns the integer count of hits rather than just `0` or `1` (A is wrong), duplicate key arguments are valid syntax (C is wrong), and Redis does not deduplicate arguments before counting (D is wrong).
+
+</details>
 
 ---
 
@@ -818,9 +1023,14 @@ A large product catalog is stored as a Redis Hash with many fields. A reviewer w
 - **C.** It reports nil for Hashes because memory usage can only be measured for Strings.
 - **D.** It reports only field values and excludes Redis object overhead.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `MEMORY USAGE` reports bytes including Redis object overhead, but for aggregate types it samples a subset of elements by default. `SAMPLES 0` forces an exact walk of every element, which is what an exact measurement requires.
+> **Why:** `MEMORY USAGE` reports RAM consumption in bytes including Redis object overhead, but for aggregate types it samples a subset of nested elements by default (`5` samples). Passing `SAMPLES 0` forces an exact traversal of every element. It measures live in-memory allocation rather than the compressed `DUMP` payload size (A is wrong), works on all data types including Hashes (C is wrong), and includes Redis object and pointer overhead rather than only raw field values (D is wrong).
+
+</details>
 
 ---
 
@@ -832,9 +1042,14 @@ Your team is designing the key namespace for the food delivery platform. Which k
 - **C.** Use a consistent hierarchical namespace with colon separators, entity first: `rest:5:menu`, `rest:5:orders:recent`, `dishes:trending`, `customers:unique:2025-03-25`
 - **D.** Prefix every key with the application and environment, but vary the remaining segment order by feature: `fooddelivery:prod:menu:rest:5`, `fooddelivery:prod:5:recent:orders`, `fooddelivery:prod:dishes:trending`, `fooddelivery:prod:2025-03-25:customers:unique`
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** This is a convention question rather than a hard technical rule. Redis's own guidance favours a consistent colon-delimited hierarchy, which is what A describes. Entity-first schemes like C are also common in practice and defensible; the genuine failure mode is D, where the segment order varies from feature to feature and no prefix scan works reliably.
+> **Why:** This is a convention question rather than a hard technical rule. Redis's own guidance favours a consistent colon-delimited hierarchy starting with the feature/collection prefix (`menu:rest:5`, `orders:recent:rest:5`), which makes prefix scanning (`SCAN 0 MATCH menu:*`) predictable. Using mutable display names like `sakura-sushi` instead of stable IDs breaks keys if a restaurant rebrands (B is wrong), entity-first prefixes scatter keys of the same feature across different restaurant IDs when scanning by feature (C is less suited for feature-level monitoring here), and varying segment order by feature makes prefix scans unreliable (D is wrong).
+
+</details>
 
 ---
 
@@ -849,9 +1064,14 @@ Your team is implementing the recent orders feed using a Redis List: `LPUSH` on 
 - **D.** Lists generally use less memory than Sorted Sets for simple feeds, so memory efficiency should be the main reason to prefer them here.
 - **E.** A Sorted Set would require the application to guarantee that no two orders share the same timestamp, since duplicate scores corrupt the feed's ordering.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answers:** A, B, C
 
-> **Why:** The List already encodes arrival order, and `LPUSH` plus `LTRIM` is the idiomatic capped-feed pattern. D and E are wrong on the facts: memory is not the deciding factor at this size, and duplicate scores do not corrupt a Sorted Set — ties simply break lexicographically by member.
+> **Why:** The List already encodes arrival order, and `LPUSH` plus `LTRIM` is the idiomatic capped-feed pattern. D and E are wrong on the facts: memory is not the deciding factor at 50 elements (D is wrong), and duplicate scores do not corrupt a Sorted Set — ties simply break lexicographically by member string (E is wrong).
+
+</details>
 
 ---
 
@@ -872,9 +1092,14 @@ public async Task AddCompletedOrderAsync(IDatabase db, int restaurantId, Order o
 - **C.** It removes elements at indices 0 through 49, clearing the first 50 entries.
 - **D.** It keeps elements at indices 0 through 49 (the 50 most recent orders) and removes everything beyond that, ensuring the list never grows past 50 elements.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** `LTRIM` keeps the given inclusive range and discards everything outside it, so `0 49` retains the 50 newest entries. It is a one-off trim, not a capacity setting on the key.
+> **Why:** `LTRIM` keeps the given inclusive index range (`0` through `49`, which is 50 elements) and discards everything outside it. The range specifies which elements to *retain* rather than which elements to delete (A and C are wrong), and `LTRIM` is an immediate one-off trim operation rather than a persistent capacity setting on the key (B is wrong).
+
+</details>
 
 ---
 
@@ -895,9 +1120,14 @@ public List<Order> GetRecentOrders(IDatabase db, int restaurantId)
 - **C.** It returns an empty `List<Order>` because `ListRange` returns an empty `RedisValue[]` when the key doesn't exist, and `Select` over an empty array produces an empty list.
 - **D.** It throws a `RedisServerException` because the key doesn't exist yet and `ListRange` cannot operate on a missing key.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** A missing key behaves like an empty list, so `LRANGE` returns an empty array rather than null or an exception. `Select` over an empty array yields an empty list — no special-casing needed.
+> **Why:** In Redis, a missing key behaves like an empty collection, so `LRANGE` returns an empty array (`RedisValue[0]`). `Select` over an empty array yields an empty `List<Order>` — `ListRange` does not return `null` (A is wrong) and does not throw `KeyNotFoundException` (B is wrong) or `RedisServerException` (D is wrong) on a missing key.
+
+</details>
 
 ---
 
@@ -918,9 +1148,14 @@ What is the order of elements in `feed`?
 - **C.** `[C-Sushi, B-Burger]`
 - **D.** `[A-Pizza, B-Burger, C-Sushi]`
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `LPUSH` prepends, so the newest order ends up at index 0 and `LRANGE 0 2` reads newest-first: C, then B, then A.
+> **Why:** `LPUSH` prepends each element to the head (left) of the list, so the newest order (`C-Sushi`) lands at index `0` and `LRANGE 0 2` reads newest-first: `C`, then `B`, then `A`. Because `LRANGE` stop indices are inclusive (`0` through `2`), it returns three elements rather than one or two (A and C are wrong), and `LPUSH` reverses insertion order rather than appending FIFO like `RPUSH` (D is wrong).
+
+</details>
 
 ---
 
@@ -946,9 +1181,14 @@ The conditional trim appears correct. What is the most likely cause?
 - **C.** `ListTrimAsync` returns before Redis trims the list, so the dashboard reads the list before the trim finishes on the server.
 - **D.** `ListTrimAsync` removes one element per call, so a single trim only brings a list of 51 down to 50, but if two pushes arrive before the trim runs, the second push is never trimmed.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** The push and the trim are two separate round trips. Two concurrent writers can both push before either trims, and a dashboard read landing in that window sees a list above its cap. The trim is eventually correct, not instantaneously correct.
+> **Why:** The push and the trim are two separate network round trips. Two concurrent writers can both push before either trims, and a dashboard read landing in that window sees a list above its cap. `LPUSH` returns the length *after* insertion (A is wrong), `LTRIM` executes synchronously on the server before returning (C is wrong), and `LTRIM 0 49` removes *all* elements past index 49 in a single call rather than just one element (D is wrong).
+
+</details>
 
 ---
 
@@ -963,9 +1203,14 @@ Your team is tracking unique customers who ordered from each restaurant on a giv
 - **D.** Adding the same customer ID multiple times does not create duplicates, so uniqueness is enforced without application-side duplicate checks.
 - **E.** Sets maintain insertion order, so customers can be retrieved in the order they first placed an order that day.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answers:** A, C, D
 
-> **Why:** A Set gives $O(1)$ cardinality via `SCARD`, native union and intersection, and idempotent adds. B is false — Redis has no per-member TTL for Sets — and E is false, since Sets are unordered.
+> **Why:** A Set gives $O(1)$ cardinality via `SCARD`, native union and intersection, and idempotent adds. B is false — Redis Sets do not support per-member TTLs (expiration applies to the whole key) — and E is false, since Sets are unordered collections.
+
+</details>
 
 ---
 
@@ -989,9 +1234,14 @@ Customer `cust:42` places three orders throughout the day. What does `added` equ
 - **C.** `true` the first time a customer orders that day, and `false` on subsequent orders from the same customer, because `SetAdd` returns whether the member was newly added to the Set.
 - **D.** The current size of the Set after the addition, allowing you to track how many unique customers have ordered so far.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** `SADD` returns the number of members actually added, which the client surfaces as a bool: `true` the first time that customer orders, `false` on repeats. That return value doubles as a cheap "first order today?" signal.
+> **Why:** `SADD` returns the number of members newly added, which `StackExchange.Redis` surfaces as a `bool`: `true` the first time that customer orders, `false` on repeats. It does not return `true` for duplicate additions (A is wrong), does not report whether the Set key previously existed (B is wrong), and returns a `bool` rather than the Set's total cardinality (which requires `SetLength` / `SCARD`, so D is wrong).
+
+</details>
 
 ---
 
@@ -1005,9 +1255,14 @@ The marketing team wants to identify customers who ordered from two different re
 - **C.** `SUNION customers:unique:rest:5:2025-03-25 customers:unique:rest:7:2025-03-25`
 - **D.** `SDIFF customers:unique:rest:5:2025-03-25 customers:unique:rest:7:2025-03-25`
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `SINTER` computes the intersection on the server in one command. The `SMEMBERS`-then-`SISMEMBER` loop in A pulls an entire set across the wire and issues one round trip per customer.
+> **Why:** `SINTER` computes the intersection on the server in one command. The `SMEMBERS`-then-`SISMEMBER` loop in A pulls an entire set across the wire and issues one round trip per customer, `SUNION` (C) returns customers who ordered from *either* restaurant, and `SDIFF` (D) returns customers who ordered from restaurant 5 but *not* restaurant 7.
+
+</details>
 
 ---
 
@@ -1029,9 +1284,14 @@ public async Task<string[]> ArchiveAndCleanupAsync(IDatabase db, string dateKey)
 - **C.** Use `SSCAN` instead of `SMEMBERS` because `SMEMBERS` blocks the server for large sets. Then delete in a separate operation.
 - **D.** Use `SMEMBERS` followed by `DEL` as shown. This is the correct approach since you need the full member list before deletion.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `SMEMBERS` and `DEL` are two commands, so any member added between them is silently lost. `RENAME` moves the key atomically into an archive namespace, after which you can read it at leisure with no race. `SPOP` with a count also removes atomically, but you would need `SCARD` first to learn the count — which reintroduces the same race.
+> **Why:** `SMEMBERS` and `DEL` are two separate commands, so any member added between them is silently lost (D is wrong). `RENAME` moves the key atomically into an archive namespace, after which you can read and delete it at leisure with no race. `SPOP` with a count also removes atomically, but you would either need `SCARD` first to learn the count (reintroducing a race) or guess an upper bound (A is less clean), and `SSCAN` followed by `DEL` still leaves a race window between reading and deleting (C is wrong).
+
+</details>
 
 ---
 
@@ -1043,9 +1303,14 @@ Your analytics team needs an exact weekly unique customer count every Monday. Yo
 - **C.** `SUNION` across the 7 daily keys, then count returned customers in the application.
 - **D.** `SINTER` across the 7 daily keys, then count customers who appear every day.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `SUNIONSTORE` computes the union server-side and returns the cardinality of the stored result, so no customer IDs cross the network. Summing seven daily `SCARD`s (A) double-counts anyone who ordered on more than one day.
+> **Why:** `SUNIONSTORE` computes the union server-side and returns the cardinality of the stored result, so no customer IDs cross the network. Summing seven daily `SCARD`s (A) double-counts anyone who ordered on more than one day, `SUNION` (C) transfers all unique customer IDs to the application, and `SINTER` (D) counts only customers who ordered on *every single day* of the week.
+
+</details>
 
 ---
 
@@ -1057,9 +1322,14 @@ Your team is implementing a "trending dishes" feature that shows the most-ordere
 - **C.** The dish's price. More expensive dishes are ranked higher to maximize revenue visibility.
 - **D.** The dish's average rating. This allows the highest-rated dishes to rise to the top as customers leave feedback.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** Trending means frequency, so the score has to accumulate order counts — `ZINCRBY` by 1 per order. A timestamp score ranks by recency instead, and price or rating rank by something else entirely.
+> **Why:** Trending means order frequency, so the score must accumulate order counts via `ZINCRBY` by `1` per order. A Unix timestamp score ranks by recency of the last order instead (A is wrong), while price (C) and average rating (D) rank by cost or review quality rather than popularity.
+
+</details>
 
 ---
 
@@ -1083,9 +1353,14 @@ What does `result` equal, and what is Sushi's score after the second call?
 - **C.** `result` is false and Sushi's score is 12. `SortedSetAdd` returns true when a member is new and false when an existing member's score is updated. The score is still updated.
 - **D.** `result` is true and Sushi's score is 20. `SortedSetAdd` automatically adds the new score to the existing score.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** `ZADD`'s reply counts newly added members, so re-adding an existing member returns `0` (`false`) — but the score is still overwritten to 12. It replaces the score rather than adding to it, which is what `ZINCRBY` does (D is wrong).
+> **Why:** `ZADD`'s default integer reply counts newly added members, so re-adding an existing member returns `0` (`false`, so A is wrong) — yet its score is still overwritten to `12` (B is wrong). `ZADD` replaces the score rather than adding to it, which is what `ZINCRBY` (`SortedSetIncrement`) does (D is wrong).
+
+</details>
 
 ---
 
@@ -1109,9 +1384,14 @@ You need to display the top 3 trending dishes with their order counts. The Sorte
   SortedSetEntry[] top3 = db.SortedSetRangeByRankWithScores("trending:dishes", 0, 2, Order.Descending);
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** Two things are needed: scores in the result (the `…WithScores` variant) and descending order. Rank ranges are 0-based and inclusive, so 0 to 2 is three members.
+> **Why:** Two things are needed: scores in the result (`SortedSetRangeByRankWithScores`) and descending order (`Order.Descending`). Rank ranges are 0-based and inclusive, so `0` to `2` returns three members. Option A defaults to `Order.Ascending` (lowest 3 dishes), Option B omits both scores and descending order, and Option C orders descending but returns only member names (`RedisValue[]`) without scores.
+
+</details>
 
 ---
 
@@ -1133,9 +1413,14 @@ The dish Ramen has never been ordered before — it doesn't exist in the Sorted 
 - **C.** The call creates Ramen as a new member with a score of 0.0 and returns 0.0. The increment is applied on the next call.
 - **D.** The call adds Ramen but returns `Double.NaN` because the member didn't previously exist. The score is set internally but isn't returned until the next `SortedSetScore` call.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `ZINCRBY` treats a missing member as having score 0, creates it, and returns the resulting score — so the first order for a dish yields 1.0. No pre-existence check is required.
+> **Why:** `ZINCRBY` treats a missing member as having score `0`, creates it, applies the increment immediately, and returns the resulting score (`1.0`). It does not throw an exception on missing members (A is wrong), does not initialize at `0.0` without applying the increment (C is wrong), and never returns `Double.NaN` (D is wrong).
+
+</details>
 
 ---
 
@@ -1147,9 +1432,14 @@ Your team uses `ZRANK` to show each dish's ranking position on the trending page
 - **C.** 2 — `ZRANK` is 0-based and orders from highest to lowest score.
 - **D.** 25 — `ZRANK` returns the member's score, not its positional rank.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** `ZRANK` is 0-based and ranks ascending by score. With Salad at 0 and Burger at 1, Pizza is 2. `ZREVRANK` gives the descending view, and `ZSCORE` gives the score.
+> **Why:** `ZRANK` is 0-based and ranks ascending by score (lowest to highest). With Salad at `0` and Burger at `1`, Pizza is at rank `2`. Redis ranks are 0-based rather than 1-based (B is wrong), descending rank requires `ZREVRANK` (although Pizza happens to be `2` from either end in a 5-element set, C's explanation of `ZRANK`'s ordering is wrong), and `ZSCORE` returns the score `25` rather than `ZRANK` (D is wrong).
+
+</details>
 
 ---
 
@@ -1197,9 +1487,14 @@ You need to retrieve the prices of all items across all categories. Which call a
   var prices = json.Get("menu:rest:5", path: "$.categories[0].items[0].price");
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `[*]` is the wildcard that walks every element of an array, so `$.categories[*].items[*].price` collects prices across all categories. A dotted path without `[*]` does not descend into arrays, and a fixed index reaches only one item.
+> **Why:** `[*]` is the array wildcard that walks every element of an array, so `$.categories[*].items[*].price` collects prices across all categories and items. A dotted path without `[*]` does not descend into JSON arrays (A is wrong), `$.price` only checks for a top-level `price` property (C is wrong), and `[0]` indices retrieve only the first item of the first category (D is wrong).
+
+</details>
 
 ---
 
@@ -1248,9 +1543,14 @@ The restaurant updates Edamame from $5.99 to $6.99. Category and item order may 
   json.Set("menu:rest:5", "$.categories[*].items[?(@.dish==\"Edamame\")].price", 6.99);
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** D
 
-> **Why:** A filter expression selects by content rather than position, so the update still finds Edamame after the menu is reordered. The hard-coded indices in C break the moment categories or items are rearranged.
+> **Why:** A JSONPath filter expression `[?(@.dish=="Edamame")]` selects by content rather than array position, so the update still targets Edamame even if categories or items are reordered. Option A overwrites the root `"$"` and wipes out the rest of the menu, Option B fails to traverse the arrays or filter for Edamame, and Option C uses hard-coded `[0]` indices that break when array order changes.
+
+</details>
 
 ---
 
@@ -1277,9 +1577,14 @@ A restaurant needs to update its menu document in one call: change the phone num
   json.Merge("menu:rest:5", "$", "{\"phone\":\"555-0200\",\"website\":\"sakurasushi.com\",\"fax\":\"\"}");
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `JSON.MERGE` follows RFC 7386 merge-patch semantics: supplied values are set, and a null value deletes that member. That is how one call can change phone, add website and remove fax. `JSON.SET` would replace the whole document instead.
+> **Why:** `JSON.MERGE` follows RFC 7386 JSON Merge Patch semantics: supplied non-null fields are updated or added, and a `null` value deletes that property. Option A uses two separate commands instead of one call, Option C uses `JSON.SET` at `"$"` which overwrites the entire document with only those three properties (leaving `"fax": null` intact), and Option D sets `fax` to an empty string `""` rather than removing it.
+
+</details>
 
 ---
 
@@ -1291,9 +1596,14 @@ After a production server crash, the team discovers that the last 3 minutes of o
 - **C.** Switch to AOF with `appendfsync everysec`. This writes operations to the append-only log every second, limiting data loss to approximately one second rather than up to 5 minutes.
 - **D.** Enable AOF with `appendfsync always` so that every write is immediately persisted to disk, guaranteeing zero data loss.
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** AOF with `appendfsync everysec` bounds the loss window to roughly one second while keeping writes cheap. Note that D's claim of "zero data loss" is an overstatement — `appendfsync always` fsyncs per write, which costs enormous throughput on a high-rate order feed and still cannot guarantee zero loss under hardware failure.
+> **Why:** AOF with `appendfsync everysec` bounds the loss window to roughly one second while keeping write throughput high. Disabling persistence (A) requires slow application-side replay on restart, 60-second RDB snapshots (B) still risk up to a full minute of lost orders, and D's claim of "guaranteeing zero data loss" is an overstatement — `appendfsync always` severely degrades write throughput and still cannot guarantee zero loss under catastrophic storage failure.
+
+</details>
 
 ---
 
@@ -1317,9 +1627,14 @@ Your operations team needs to audit all restaurant menu keys to verify a migrati
   KEYS menu:rest:*
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** B
 
-> **Why:** `SCAN` iterates in small chunks and never blocks the server. `KEYS` walks the entire keyspace in one blocking pass; on 50 million keys that stalls every other client for the duration.
+> **Why:** `SCAN` iterates the keyspace in small non-blocking chunks so production traffic can interleave between calls. `OBJECT FREQ` inspects the LFU frequency counter of a single key rather than matching patterns (A is wrong), `RANDOMKEY` samples keys randomly with replacement and cannot reliably enumerate a subset (C is wrong), and `KEYS` scans all 50 million keys in one blocking pass that freezes the single-threaded server (D is wrong).
+
+</details>
 
 ---
 
@@ -1343,9 +1658,14 @@ At the end of each day, your cleanup job needs to delete the trending dishes Sor
   DEL trending:dishes:2025-03-25
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** C
 
-> **Why:** `UNLINK` removes the key from the keyspace immediately and frees the memory on a background thread, so reclaiming a 100,000-member object does not block the main thread the way `DEL` does.
+> **Why:** `UNLINK` removes the key from the keyspace immediately and reclaims the memory of its 100,000 members asynchronously on a background thread. `ZREMRANGEBYRANK` (A) and `DEL` (D) deallocate all 100,000 elements synchronously on the main command thread and block concurrent traffic, while `EXPIRE ... 1` (B) unnecessarily delays removal by 1 second and may still free memory synchronously unless `lazyfree-lazy-expire` is enabled.
+
+</details>
 
 ---
 
@@ -1384,6 +1704,12 @@ public async Task<long> CleanupOldKeysAsync(IDatabase db, string[] keysToDelete)
   return (long)await db.ExecuteAsync("DEL", string.Join(" ", keysToDelete));
   ```
 
+<details>
+<summary>💡 <b>View Answer & Explanation</b></summary>
+
 **Correct answer:** A
 
-> **Why:** Passing the whole array to `KeyDeleteAsync` issues a single variadic `DEL` — one round trip for all 500 keys. B and C cost 500 round trips, and D's `string.Join` produces one malformed key name rather than 500 keys.
+> **Why:** Passing the `RedisKey[]` array to `KeyDeleteAsync` issues a single variadic `DEL` command — one network round trip and one command execution for all 500 keys. Option B issues 500 separate `DEL` commands, Option C awaits 500 sequential network round trips one by one, and Option D's `string.Join(" ", keysToDelete)` passes a single space-concatenated string as one malformed key name rather than 500 separate arguments.
+
+</details>
+
