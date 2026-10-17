@@ -1,7 +1,7 @@
 # 🎓 Certification Exams & Question Banks
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Certifications](https://img.shields.io/badge/Certifications-6%20Available-success.svg)](#-available-certifications)
+[![Certifications](https://img.shields.io/badge/Certifications-7%20Available-success.svg)](#-available-certifications)
 [![Format](https://img.shields.io/badge/Format-MCQs_%2B_Verified_Answers_%2B_Explanations-orange.svg)](#-question-bank-format--structure)
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](#-how-to-contribute--add-exams)
 
@@ -15,6 +15,7 @@ Welcome to the **Certification Practice Exams & Study Guides** repository! This 
 | :--- | :--- | :---: | :---: | :--- |
 | **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-dotnet-developers/README.md) |
 | **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
+| **🔴 Redis** | [Redis Associate Cloud Operator](redis/redis-associate-cloud-operator/README.md) | **65 MCQs** | ✅ Verified | [View Questions →](redis/redis-associate-cloud-operator/README.md) |
 | **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
 | **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
 | **🧠 Microsoft Azure** | [AI-103 / AI-102: Azure AI Engineer Associate](azure/ai-103-azure-ai-engineer-associate/README.md) | **64 MCQs** | ✅ Verified | [View Questions →](azure/ai-103-azure-ai-engineer-associate/README.md) |
@@ -47,9 +48,13 @@ certification-exams/
 │   │   ├── README.md                            # 65 MCQs + Verified Answers + Explanations
 │   │   └── CHEAT_SHEET.md                       # Data structures, C# patterns & Cram Sheet
 │   │
-│   └── redis-for-javascript-developers/         # Redis for JavaScript Developers
-│       ├── README.md                            # 45 MCQs on node-redis, Streams, Geo, JSON
-│       └── CHEAT_SHEET.md                       # Node.js patterns, Pub/Sub & Cram Sheet
+│   ├── redis-for-javascript-developers/         # Redis for JavaScript Developers
+│   │   ├── README.md                            # 45 MCQs on node-redis, Streams, Geo, JSON
+│   │   └── CHEAT_SHEET.md                       # Node.js patterns, Pub/Sub & Cram Sheet
+│   │
+│   └── redis-associate-cloud-operator/          # Redis Associate Cloud Operator Exam
+│       ├── README.md                            # 65 MCQs on Pro vs Essentials, HA, Private Link, IaC
+│       └── CHEAT_SHEET.md                       # Architecture, Networking & Prometheus Cram Sheet
 │
 ├── azure/                                       # Microsoft Azure Certifications
 │   ├── dp-900-azure-data-fundamentals/          # DP-900 Exam Guide & Question Bank
