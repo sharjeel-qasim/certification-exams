@@ -1,13 +1,13 @@
-# AI-103 / AI-102: Microsoft Azure AI Engineer Associate — Practice Question Bank
+# AI-103: Developing AI Apps and Agents on Azure — Practice Question Bank
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
-[![Exam](https://img.shields.io/badge/Exam-AI--103%20%2F%20AI--102-blue?style=for-the-badge)](#table-of-contents)
+[![Exam](https://img.shields.io/badge/Exam-AI--103-blue?style=for-the-badge)](#table-of-contents)
 [![Questions](https://img.shields.io/badge/Questions-64%20Verified%20Questions-success?style=for-the-badge)](#table-of-contents)
 [![Cheat Sheet](https://img.shields.io/badge/Study_Guide-Cheat_Sheet-orange?style=for-the-badge)](./CHEAT_SHEET.md)
 
-Complete, cleaned, and verified Practice Question Bank for the **Microsoft Certified: Azure AI Engineer Associate (AI-103 / AI-102)** exam. Covers Microsoft Foundry Agent Service, multi-agent orchestration workflows, Azure OpenAI & multimodal models, AI safety & evaluations, Azure Content Understanding, Azure AI Search (RAG), Computer Vision, NLP, and Speech services.
+Complete, cleaned, and verified Practice Question Bank for **Exam AI-103: Developing AI Apps and Agents on Azure** (**Microsoft Certified: Azure AI Apps and Agents Developer Associate**). Covers Microsoft Foundry Agent Service, multi-agent orchestration workflows, Azure OpenAI & multimodal models, AI safety & evaluations, Azure Content Understanding, Azure AI Search (RAG), Computer Vision, NLP, and Speech services.
 
-> ⚡ **Quick Review:** Check out the [**AI-103 / AI-102 Exam Cheat Sheet**](./CHEAT_SHEET.md) for a high-yield summary of Azure OpenAI, RAG, Agent Framework, Vision, Speech, and Document Intelligence before testing yourself below.
+> ⚡ **Quick Review:** Check out the [**AI-103 Exam Cheat Sheet**](./CHEAT_SHEET.md) for a high-yield summary of Azure OpenAI, RAG, Agent Framework, Vision, Speech, and Document Intelligence before testing yourself below.
 
 ---
 

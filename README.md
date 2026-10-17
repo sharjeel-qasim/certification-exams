@@ -16,12 +16,10 @@ Welcome to the **Certification Practice Exams & Study Guides** repository! This 
 | **🔴 Redis** | [Redis for .NET Developers](redis/redis-for-dotnet-developers/README.md) | **65 MCQs** | [⚡ Cheat Sheet](redis/redis-for-dotnet-developers/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-for-dotnet-developers/README.md) |
 | **🔴 Redis** | [Redis for JavaScript Developers](redis/redis-for-javascript-developers/README.md) | **45 MCQs** | [⚡ Cheat Sheet](redis/redis-for-javascript-developers/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-for-javascript-developers/README.md) |
 | **🔴 Redis** | [Redis Associate Cloud Operator](redis/redis-associate-cloud-operator/README.md) | **65 MCQs** | [⚡ Cheat Sheet](redis/redis-associate-cloud-operator/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](redis/redis-associate-cloud-operator/README.md) |
-| **☁️ Microsoft Azure** | [DP-900: Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/dp-900-azure-data-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
-| **🤖 Microsoft Azure** | [AI-900 / AI-901: Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | [⚡ Cheat Sheet](azure/ai-900-azure-ai-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
-| **🧠 Microsoft Azure** | [AI-103 / AI-102: Azure AI Engineer Associate](azure/ai-103-azure-ai-engineer-associate/README.md) | **64 MCQs** | [⚡ Cheat Sheet](azure/ai-103-azure-ai-engineer-associate/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-103-azure-ai-engineer-associate/README.md) |
-| **🔒 Microsoft Azure** | [SC-900: Security, Compliance & Identity](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/sc-900-security-compliance-identity/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
-| **☁️ Cloud & DevOps** | *(Upcoming: AWS, GCP, CKA, Terraform)* | — | — | ⏳ In Planning | *Coming soon* |
-| **☕ Backend & Frameworks** | *(Upcoming: Spring, .NET, Node.js)* | — | — | ⏳ In Planning | *Coming soon* |
+| **☁️ Microsoft Azure** | [DP-900: Microsoft Azure Data Fundamentals](azure/dp-900-azure-data-fundamentals/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/dp-900-azure-data-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/dp-900-azure-data-fundamentals/README.md) |
+| **🤖 Microsoft Azure** | [AI-900: Microsoft Azure AI Fundamentals](azure/ai-900-azure-ai-fundamentals/README.md) | **45 MCQs** | [⚡ Cheat Sheet](azure/ai-900-azure-ai-fundamentals/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-900-azure-ai-fundamentals/README.md) |
+| **🧠 Microsoft Azure** | [AI-103: Developing AI Apps and Agents on Azure](azure/ai-103-developing-ai-apps-and-agents/README.md) | **64 MCQs** | [⚡ Cheat Sheet](azure/ai-103-developing-ai-apps-and-agents/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/ai-103-developing-ai-apps-and-agents/README.md) |
+| **🔒 Microsoft Azure** | [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](azure/sc-900-security-compliance-identity/README.md) | **50 MCQs** | [⚡ Cheat Sheet](azure/sc-900-security-compliance-identity/CHEAT_SHEET.md) | ✅ Verified | [View Questions →](azure/sc-900-security-compliance-identity/README.md) |
 
 ---
 
@@ -45,7 +43,7 @@ certification-exams/
 ├── README.md                                    # Root repository index & guidelines
 │
 ├── redis/                                       # Redis Certifications
-│   ├── redis-for-dotnet-developers/             # Redis for .NET Developers Exam
+│   ├── redis-for-dotnet-developers/             # Redis for .NET Developers
 │   │   ├── README.md                            # 65 MCQs + Active-Recall Spoilers + Explanations
 │   │   └── CHEAT_SHEET.md                       # Data structures, C# patterns & Cram Sheet
 │   │
@@ -53,30 +51,26 @@ certification-exams/
 │   │   ├── README.md                            # 45 MCQs on node-redis, Streams, Geo, JSON
 │   │   └── CHEAT_SHEET.md                       # Node.js patterns, Pub/Sub & Cram Sheet
 │   │
-│   └── redis-associate-cloud-operator/          # Redis Associate Cloud Operator Exam
+│   └── redis-associate-cloud-operator/          # Redis Associate Cloud Operator
 │       ├── README.md                            # 65 MCQs on Pro vs Essentials, HA, Private Link, IaC
 │       └── CHEAT_SHEET.md                       # Architecture, Networking & Prometheus Cram Sheet
 │
-├── azure/                                       # Microsoft Azure Certifications
-│   ├── dp-900-azure-data-fundamentals/          # DP-900 Exam Guide & Question Bank
-│   │   ├── README.md                            # 50 MCQs organized by 4 Official Domains
-│   │   └── CHEAT_SHEET.md                       # Last-Minute Cram Sheet & Comparison Matrices
-│   │
-│   ├── ai-900-azure-ai-fundamentals/            # AI-900 / AI-901 Exam Guide & Question Bank
-│   │   ├── README.md                            # 45 MCQs on Generative AI, LLMs, Vision, NLP
-│   │   └── CHEAT_SHEET.md                       # Responsible AI, ML & Foundry SDK Cram Sheet
-│   │
-│   ├── ai-103-azure-ai-engineer-associate/      # AI-103 / AI-102 Exam Guide & Question Bank
-│   │   ├── README.md                            # 64 MCQs on Foundry Agents, RAG, Multimodal, Safety
-│   │   └── CHEAT_SHEET.md                       # Orchestration, Evaluators & Search Cram Sheet
-│   │
-│   └── sc-900-security-compliance-identity/     # SC-900 Exam Guide & Question Bank
-│       ├── README.md                            # 50 MCQs on Zero Trust, Entra, Defender, Purview
-│       └── CHEAT_SHEET.md                       # High-Yield Cram Sheet & Product Comparisons
-│
-└── [category]/                                  # Future certification categories
-    └── [exam-name]/
-        └── README.md
+└── azure/                                       # Microsoft Azure Certifications
+    ├── dp-900-azure-data-fundamentals/          # DP-900: Microsoft Azure Data Fundamentals
+    │   ├── README.md                            # 50 MCQs organized by 4 Official Domains
+    │   └── CHEAT_SHEET.md                       # Last-Minute Cram Sheet & Comparison Matrices
+    │
+    ├── ai-900-azure-ai-fundamentals/            # AI-900: Microsoft Azure AI Fundamentals
+    │   ├── README.md                            # 45 MCQs on Generative AI, LLMs, Vision, NLP
+    │   └── CHEAT_SHEET.md                       # Responsible AI, ML & Foundry SDK Cram Sheet
+    │
+    ├── ai-103-developing-ai-apps-and-agents/    # AI-103: Developing AI Apps and Agents on Azure
+    │   ├── README.md                            # 64 MCQs on Foundry Agents, RAG, Multimodal, Safety
+    │   └── CHEAT_SHEET.md                       # Orchestration, Evaluators & Search Cram Sheet
+    │
+    └── sc-900-security-compliance-identity/     # SC-900: Microsoft Security, Compliance, and Identity Fundamentals
+        ├── README.md                            # 50 MCQs on Zero Trust, Entra, Defender, Purview
+        └── CHEAT_SHEET.md                       # High-Yield Cram Sheet & Product Comparisons
 ```
 
 ---

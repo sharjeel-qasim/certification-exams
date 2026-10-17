@@ -1,9 +1,9 @@
-# ⚡ AI-900 / AI-901: Microsoft Azure AI Fundamentals — Cram & Cheat Sheet
+# ⚡ AI-900: Microsoft Azure AI Fundamentals — Cram & Cheat Sheet
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
-[![Exam](https://img.shields.io/badge/Exam-AI--900%20%2F%20AI--901-blue?style=for-the-badge)](#-high-frequency-exam-topics)
+[![Exam](https://img.shields.io/badge/Exam-AI--900-blue?style=for-the-badge)](#-high-frequency-exam-topics)
 
-Quick-reference cheat sheet for **Microsoft Certified: Azure AI Fundamentals (AI-900 / AI-901)**. Covers the 6 Responsible AI Principles, Machine Learning models, Computer Vision tasks, Natural Language Processing (NLP), Speech services, Generative AI, and the Microsoft Foundry SDK.
+Quick-reference cheat sheet for **Microsoft Certified: Azure AI Fundamentals (AI-900)**. Covers the 6 Responsible AI Principles, Machine Learning models, Computer Vision tasks, Natural Language Processing (NLP), Speech services, Generative AI, and the Microsoft Foundry SDK.
 
 ---
 

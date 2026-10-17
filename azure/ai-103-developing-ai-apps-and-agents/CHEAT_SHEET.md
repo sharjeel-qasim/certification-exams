@@ -1,10 +1,10 @@
-# ⚡ AI-103 / AI-102: Microsoft Azure AI Engineer Associate — Cram & Cheat Sheet
+# ⚡ AI-103: Developing AI Apps and Agents on Azure — Cram & Cheat Sheet
 
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
-[![Exam](https://img.shields.io/badge/Exam-AI--103%20%2F%20AI--102-blue?style=for-the-badge)](#-microsoft-foundry--agent-service-quick-reference)
+[![Exam](https://img.shields.io/badge/Exam-AI--103-blue?style=for-the-badge)](#-microsoft-foundry--resource-governance)
 [![Question Bank](https://img.shields.io/badge/Practice_Questions-64_MCQs-success?style=for-the-badge)](README.md)
 
-High-yield, last-minute cram sheet for **Microsoft Certified: Azure AI Engineer Associate (AI-103 / AI-102)**. Covers Microsoft Foundry Agent Service, multi-agent orchestration, OpenAI multimodal/realtime/image/video APIs, AI Safety & Prompt Shields, Evaluators, Observability, Content Understanding, and Azure AI Search RAG pipelines.
+High-yield, last-minute cram sheet for **Exam AI-103: Developing AI Apps and Agents on Azure** (**Microsoft Certified: Azure AI Apps and Agents Developer Associate**). Covers Microsoft Foundry Agent Service, multi-agent orchestration, OpenAI multimodal/realtime/image/video APIs, AI Safety & Prompt Shields, Evaluators, Observability, Content Understanding, and Azure AI Search RAG pipelines.
 
 ---
 
